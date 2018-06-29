@@ -70,7 +70,16 @@ const createRecipe = function (data) {
     }
   })
 }
-
+const updateRecipe = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/recipes/' + data.id,
+    data: {recipe: data},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
@@ -78,5 +87,6 @@ module.exports = {
   signOut,
   createRecipe,
   getRecipes,
-  getRecipe
+  getRecipe,
+  updateRecipe
 }
