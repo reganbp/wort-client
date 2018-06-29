@@ -61,6 +61,13 @@ const onUpdateRecipe = function (event) {
     .then(authUi.updateRecipeSuccess)
     .catch(authUi.updateRecipeFailure)
 }
+const onDestroyRecipe = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.destroyRecipe(data)
+    .then(authUi.destroyRecipeSuccess)
+    .catch(authUi.destroyRecipeFailure)
+}
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
@@ -70,6 +77,7 @@ const addHandlers = () => {
   $('#get-recipes-button').on('click', onGetRecipes)
   $('#get-recipe-form').on('submit', onGetRecipe)
   $('#update-recipe-form').on('submit', onUpdateRecipe)
+  $('#destroy-recipe-form').on('submit', onDestroyRecipe)
 }
 
 module.exports = {
@@ -80,5 +88,6 @@ module.exports = {
   onSignOut,
   onCreateRecipe,
   onGetRecipes,
-  onGetRecipe
+  onGetRecipe,
+  onDestroyRecipe
 }

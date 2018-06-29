@@ -80,6 +80,15 @@ const updateRecipe = function (data) {
     }
   })
 }
+const destroyRecipe = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/recipes/' + data.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
@@ -88,5 +97,6 @@ module.exports = {
   createRecipe,
   getRecipes,
   getRecipe,
-  updateRecipe
+  updateRecipe,
+  destroyRecipe
 }
