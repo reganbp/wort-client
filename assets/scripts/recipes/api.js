@@ -37,23 +37,35 @@ const signOut = function () {
     }
   })
 }
-//
-// const getGame = function () {
-//   // console.log('did I get game?')
-//   return $.ajax({
-//     method: 'GET',
-//     url: config.apiUrl + '/games',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const getRecipes = function () {
+  console.log('did I get recipes?')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/recipes',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+const createRecipe = function (data) {
+  console.log('the data is ', data)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/recipes',
+    data: {recipe: data},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePw,
-  signOut
+  signOut,
+  createRecipe,
+  getRecipes
   // newGame,
   // updateGame,
   // getGame

@@ -31,6 +31,19 @@ const passwordPass = function () {
 const passwordFail = function () {
   console.log('password failed')
 }
+const createRecipeSuccess = function (response) {
+  console.log('you created a recipe, the respose is ', response)
+  console.log('the store is ', store)
+}
+const createRecipeFailure = function (response) {
+  console.log('failure, response is ', response)
+}
+const getRecipesSuccess = function (response) {
+  console.log('The response is ', response)
+}
+const getRecipesFailure = function (getRecipesError) {
+  console.log('The get error is ', getRecipesError)
+}
 
 module.exports = {
   signUpSuccess,
@@ -40,5 +53,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   passwordPass,
-  passwordFail
+  passwordFail,
+  createRecipeSuccess,
+  createRecipeFailure,
+  getRecipesSuccess,
+  getRecipesFailure
 }

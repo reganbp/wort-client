@@ -33,11 +33,27 @@ const onSignOut = function (event) {
     .then(authUi.signOutSuccess)
     .catch(authUi.signOutFailure)
 }
+const onCreateRecipe = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.createRecipe(data)
+    .then(authUi.createRecipeSuccess)
+    .catch(authUi.createRecipeFailure)
+}
+const onGetRecipes = function (event) {
+  event.preventDefault()
+
+  authApi.getRecipes()
+    .then(authUi.getRecipesSuccess)
+    .catch(authUi.getRecipesFailure)
+}
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-form').on('submit', onChangePw)
   $('#sign-out-button').on('click', onSignOut)
+  $('#create-recipe-form').on('submit', onCreateRecipe)
+  $('#get-recipes-button').on('click', onGetRecipes)
 }
 
 module.exports = {
@@ -45,5 +61,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onSignOut
+  onSignOut,
+  onCreateRecipe,
+  onGetRecipes
 }
