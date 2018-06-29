@@ -71,6 +71,7 @@ const createRecipe = function (data) {
   })
 }
 const updateRecipe = function (data) {
+  // console.log('api says data is ', data)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/recipes/' + data.id,
