@@ -44,6 +44,12 @@ const getRecipesSuccess = function (response) {
 const getRecipesFailure = function (getRecipesError) {
   console.log('The get error is ', getRecipesError)
 }
+const getRecipeSuccess = function (response) {
+  console.log('The response is ', response)
+}
+const getRecipeFailure = function (getRecipeError) {
+  console.log('The get error is ', getRecipeError)
+}
 
 module.exports = {
   signUpSuccess,
@@ -57,5 +63,7 @@ module.exports = {
   createRecipeSuccess,
   createRecipeFailure,
   getRecipesSuccess,
-  getRecipesFailure
+  getRecipesFailure,
+  getRecipeSuccess,
+  getRecipeFailure
 }

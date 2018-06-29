@@ -47,6 +47,18 @@ const getRecipes = function () {
     }
   })
 }
+const getRecipe = function (data) {
+  console.log('data is ', data)
+  console.log('data.id is ', data.id)
+  console.log('store is ', store)
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/recipes/' + data.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 const createRecipe = function (data) {
   console.log('the data is ', data)
   return $.ajax({
@@ -65,9 +77,6 @@ module.exports = {
   changePw,
   signOut,
   createRecipe,
-  getRecipes
-  // newGame,
-  // updateGame,
-  // getGame
-
+  getRecipes,
+  getRecipe
 }
