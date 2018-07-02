@@ -29,6 +29,9 @@ const signOutSuccess = function (response) {
   console.log('Goodbye ', response)
   delete store.user
   console.log('the new store is ', store)
+  $('#buttons').hide()
+  $('#sign-up-form').show()
+  $('#sign-in-form').show()
 }
 const signOutFailure = function (signOutError) {
   console.log('The sign in error is ', signOutError)
