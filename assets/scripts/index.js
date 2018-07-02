@@ -9,4 +9,10 @@ const recipeEvents = require('./recipes/events.js')
 
 $(() => {
   recipeEvents.addHandlers()
+  $('#change-password-form').hide()
+  $('#create').hide()
+  $('#get').hide()
+  $('#update').hide()
+  $('#destroy').hide()
+  $('#buttons').hide()
 })

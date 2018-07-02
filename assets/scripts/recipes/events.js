@@ -79,6 +79,36 @@ const onDestroyRecipe = function (event) {
     .then(authUi.destroyRecipeSuccess)
     .catch(authUi.destroyRecipeFailure)
 }
+const onCreateClick = function (event) {
+  $('#create').show()
+  $('.new-recipe').hide()
+  $('#get').hide()
+  $('#update').hide()
+  $('#destroy').hide()
+}
+const onUpdateCLick = function (event) {
+  $('#update').show()
+  $('.new-recipe').hide()
+  $('#create').hide()
+  $('#get').hide()
+  $('#destroy').hide()
+}
+const onDestroyClick = function (event) {
+  $('#update').hide()
+  $('.new-recipe').hide()
+  $('#create').hide()
+  $('#get').hide()
+  $('#destroy').show()
+}
+
+const onGetClick = function (event) {
+  $('#update').hide()
+  $('.new-recipe').hide()
+  $('#create').hide()
+  $('#get').show()
+  $('#destroy').hide()
+}
+
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
@@ -89,6 +119,10 @@ const addHandlers = () => {
   $('#get-recipe-form').on('submit', onGetRecipe)
   $('#update-recipe-form').on('submit', onUpdateRecipe)
   $('#destroy-recipe-form').on('submit', onDestroyRecipe)
+  $('#create-button').on('click', onCreateClick)
+  $('#update-button').on('click', onUpdateCLick)
+  $('#destroy-button').on('click', onDestroyClick)
+  $('#show-button').on('click', onGetClick)
 }
 
 module.exports = {

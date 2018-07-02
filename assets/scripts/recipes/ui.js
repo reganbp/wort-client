@@ -13,6 +13,14 @@ const signUpFailure = function (signUpError) {
 const signInSuccess = function (response) {
   console.log('response ', response)
   store.user = response.user
+  document.getElementById('sign-in-form').reset()
+  $('#buttons').show()
+  $('#sign-up-form').hide()
+  $('#sign-in-form').hide()
+  // $('#create').show()
+  // $('#get').show()
+  // $('#update').show()
+  // $('#destroy').show()
 }
 const signInFailure = function (signInError) {
   console.log('The sign in error is ', signInError)
@@ -34,6 +42,8 @@ const passwordFail = function () {
 const createRecipeSuccess = function (response) {
   console.log('you created a recipe, the respose is ', response)
   console.log('the store is ', store)
+  $('.new-recipe').show()
+  $('.new-recipe-response').html('Name: ' + response['recipe'].name)
 }
 const createRecipeFailure = function (response) {
   console.log('failure, response is ', response)
@@ -52,6 +62,8 @@ const getRecipeFailure = function (getRecipeError) {
 }
 const updateRecipeSuccess = function (response) {
   console.log('The response is ', response)
+  $('.new-recipe').show()
+  $('.new-recipe-response').html('Name: ' + response['recipe'].name)
 }
 const updateRecipeFailure = function (response) {
   console.log('The get error is ', response)
