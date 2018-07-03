@@ -56,6 +56,13 @@ const onGetRecipes = function (event) {
     .then(authUi.getRecipesSuccess)
     .catch(authUi.getRecipesFailure)
 }
+const onGetMyRecipes = function (event) {
+  event.preventDefault()
+
+  authApi.getMyRecipes()
+    .then(authUi.getMyRecipesSuccess)
+    .catch(authUi.getMyRecipesFailure)
+}
 const onGetRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -141,6 +148,7 @@ const addHandlers = () => {
   $('#destroy-button').on('click', onDestroyClick)
   $('#show-button').on('click', onGetClick)
   $('#saved-button').on('click', onGetsClick)
+  $('#my-recipes-button').on('click', onGetMyRecipes)
   // $('sign-up-nav').on('click', onUpNavClick)
 }
 

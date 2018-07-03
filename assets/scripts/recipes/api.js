@@ -47,6 +47,16 @@ const getRecipes = function () {
     }
   })
 }
+const getMyRecipes = function () {
+  console.log('did I get recipes?')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/recipes',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 const getRecipe = function (data) {
   console.log('data is ', data)
   console.log('data.id is ', data.id)
@@ -100,5 +110,6 @@ module.exports = {
   getRecipes,
   getRecipe,
   updateRecipe,
-  destroyRecipe
+  destroyRecipe,
+  getMyRecipes
 }

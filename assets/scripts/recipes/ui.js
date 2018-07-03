@@ -33,8 +33,10 @@ const signOutSuccess = function (response) {
   delete store.user
   console.log('the new store is ', store)
   $('#buttons').hide()
-  $('#sign-up-form').show()
-  $('#sign-in-form').show()
+  $('.before-button').show()
+  $('.after-button').hide()
+  // $('#sign-up-form').hide()
+  // $('#sign-in-form').show()
 }
 const signOutFailure = function (signOutError) {
   console.log('The sign in error is ', signOutError)
@@ -48,8 +50,11 @@ const passwordFail = function () {
 const createRecipeSuccess = function (response) {
   console.log('you created a recipe, the respose is ', response)
   console.log('the store is ', store)
-  $('.new-recipe').show()
-  $('.new-recipe-response').html('Name: ' + response['recipe'].name)
+  // $('.new-recipe').show()
+  // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
+  const newHTML = '<ul><li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li></ul>'
+  $('#get-recipe').show()
+  $('#get-recipe').html(newHTML)
 }
 const createRecipeFailure = function (response) {
   console.log('failure, response is ', response)
@@ -64,6 +69,9 @@ const getRecipesSuccess = function (response) {
   let newHTML = ''
   response['recipes'].forEach(function (recipe) {
     console.log(recipe.user_id)
+    if (recipe.name === '') {
+      recipe.name = 'untitled'
+    }
     newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
   })
   $('#get-recipe').show()
@@ -74,6 +82,20 @@ const getRecipesSuccess = function (response) {
 
 const getRecipesFailure = function (getRecipesError) {
   console.log('The get error is ', getRecipesError)
+}
+const getMyRecipesSuccess = function (response) {
+  console.log('The my reciperesponse is ', response)
+  console.log('user is ', store.user.id)
+  console.log('store is ', store)
+  let newHTML = ''
+  response['recipes'].forEach(function (recipe) {
+    console.log(recipe.user_id)
+    if (recipe.user_id === store.user.id) {
+      newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
+    }
+  })
+  $('#get-recipe').show()
+  $('#get-recipe').html(newHTML)
 }
 const getRecipeSuccess = function (response) {
   console.log('The response is ', response)
@@ -114,5 +136,6 @@ module.exports = {
   updateRecipeSuccess,
   updateRecipeFailure,
   destroyRecipeSuccess,
-  destroyRecipeFailure
+  destroyRecipeFailure,
+  getMyRecipesSuccess
 }
