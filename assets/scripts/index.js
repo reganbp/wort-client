@@ -17,4 +17,6 @@ $(() => {
   $('#update').hide()
   $('#destroy').hide()
   $('#buttons').hide()
+  $('.after-button').hide()
+  $('#get-recipe').hide()
 })

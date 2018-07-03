@@ -60,6 +60,7 @@ const getRecipe = function (data) {
   })
 }
 const createRecipe = function (data) {
+  data.user_id = store.user.id
   console.log('the data is ', data)
   return $.ajax({
     method: 'POST',

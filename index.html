@@ -28,7 +28,7 @@
       </div> -->
 
 
-      <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
 		<!-- <a class="navbar-brand" href="#">Brand<b>Name</b></a> -->
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
@@ -63,7 +63,7 @@
 			</div>
 		</form> -->
 		<ul class="nav navbar-nav navbar-right ml-auto">
-			<li class="nav-item">
+			<li class="nav-item before-button">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" >Login</a>
 				<ul class="dropdown-menu form-wrapper">
 					<li>
@@ -79,7 +79,7 @@
 					</li>
 				</ul>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item before-button">
 				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
 				<ul class="dropdown-menu form-wrapper">
 					<li>
@@ -92,15 +92,46 @@
 								<input name="credentials[password]" placeholder="Password" type="password">
 							</div>
 							<div class="form-group">
-								<<input name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
+								<input name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
 							</div>
 							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
 						</form>
 					</li>
 				</ul>
 			</li>
+      <li class="nav-item after-button">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" >Change Password</a>
+				<ul class="dropdown-menu form-wrapper">
+					<li>
+						<form id="change-password-dropdown">
+							<div class="form-group" >
+                <input name="passwords[old]" placeholder="Old Password" type="password">
+							</div>
+							<div class="form-group">
+								<input name="passwords[new]" placeholder="New Password" type="password">
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Change Password">
+						</form>
+					</li>
+				</ul>
+			</li>
+      <li class="nav-item after-button">
+        <a data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" >Sign out</a>
+				<ul class="dropdown-menu form-wrapper">
+					<li>
+						<form id="sign-out-dropdown">
+							<div class="form-group" >
+                Are you sure?
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Sign Out">
+						</form>
+					</li>
+				</ul>
+			</li>
+				<!-- <button id="sign-out-button" class="sign-out btn btn-block">Sign Out</button>
+			</li> -->
 		</ul>
-	</div>
+	<!-- </div> -->
 </nav>
 
       <h1 class="title">Project 2 time</h1>
@@ -124,14 +155,15 @@
         <button type="submit">Change Password</button>
       </form>
 
-      <button id='sign-out-button' class="sign-out after-button btn btn-light">Sign Out</button>
+      <!-- <button id='sign-out-button' class="sign-out after-button btn btn-light">Sign Out</button> -->
 
       <div id="buttons">
       <button id="create-button">Create Recipe</button>
       <button id="update-button">Update Recipe</button>
       <button id="destroy-button">Delete Recipe</button>
       <button id="show-button">My Recipes</button>
-      <button id="saved-button">My Saved Recipes</button>
+      <!-- <button id="saved-button">All Recipies</button> -->
+      <button id="get-recipes-button">All Recipies</button>
       </div>
       <div id="create">
         <h3>Create</h3>
@@ -154,7 +186,7 @@
 
       <div id="get">
         <h3> Get </h3>
-        <button id='get-recipes-button' class="get-recipes btn btn-light">Get Recipes</button>
+        <!-- <button id='get-recipes-button' class="get-recipes btn btn-light">Get Recipes</button> -->
         <form id="get-recipe-form">
           <input name="id" placeholder="ID" type="text">
           <button type="submit">Get Recipe</button>
@@ -178,6 +210,8 @@
         <div class="new-recipe">Your new recipe is
             <div class="new-recipe-response"></div>
         </div>
+
+        <!-- <div id="get-recipe">TEst this out</div> -->
       </div>
 
       <div id="destroy">
@@ -187,7 +221,7 @@
           <button type="submit">Destroy Recipe</button>
         </form>
       </div>
-
+      <div id="get-recipe"></div>
 
     </body>
 </html>

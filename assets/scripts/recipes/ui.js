@@ -1,4 +1,5 @@
 const store = require('../store')
+// const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 
 const signUpSuccess = function (signUpResponse) {
   console.log('signUpResponse ', signUpResponse)
@@ -15,6 +16,8 @@ const signInSuccess = function (response) {
   store.user = response.user
   document.getElementById('sign-in-form').reset()
   $('#buttons').show()
+  $('.before-button').hide()
+  $('.after-button').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
   // $('#create').show()
@@ -53,7 +56,22 @@ const createRecipeFailure = function (response) {
 }
 const getRecipesSuccess = function (response) {
   console.log('The response is ', response)
+  // console.log(response['recipes'])
+  // console.log('this is ', response['recipes'].name)
+  // for (let key in response) {
+  //   newHTML += '<li><h4>' + response['key'].name + '</h4></li>'
+  // }
+  let newHTML = ''
+  response['recipes'].forEach(function (recipe) {
+    console.log(recipe.user_id)
+    newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
+  })
+  $('#get-recipe').show()
+  $('#get-recipe').html(newHTML)
+  // const showRecipesHtml = showRecipesTemplate({ recipe: response.recipe })
+  // $('.new-recipe').html(showRecipesHtml)
 }
+
 const getRecipesFailure = function (getRecipesError) {
   console.log('The get error is ', getRecipesError)
 }
@@ -77,6 +95,7 @@ const destroyRecipeSuccess = function (successResponse) {
 const destroyRecipeFailure = function (failResponse) {
   console.log('Bad get error is ', failResponse)
 }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,

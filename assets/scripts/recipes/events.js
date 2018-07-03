@@ -85,6 +85,7 @@ const onCreateClick = function (event) {
   $('#get').hide()
   $('#update').hide()
   $('#destroy').hide()
+  $('#get-recipe').hide()
 }
 const onUpdateCLick = function (event) {
   $('#update').show()
@@ -92,6 +93,7 @@ const onUpdateCLick = function (event) {
   $('#create').hide()
   $('#get').hide()
   $('#destroy').hide()
+  $('#get-recipe').hide()
 }
 const onDestroyClick = function (event) {
   $('#update').hide()
@@ -99,6 +101,7 @@ const onDestroyClick = function (event) {
   $('#create').hide()
   $('#get').hide()
   $('#destroy').show()
+  $('#get-recipe').hide()
 }
 
 const onGetClick = function (event) {
@@ -107,6 +110,7 @@ const onGetClick = function (event) {
   $('#create').hide()
   $('#get').show()
   $('#destroy').hide()
+  $('#get-recipe').hide()
 }
 
 const onGetsClick = function (event) {
@@ -115,9 +119,9 @@ const onGetsClick = function (event) {
   $('#create').hide()
   $('#get').show()
   $('#destroy').hide()
+  $('#get-recipe').hide()
 }
-const onUpNavClick = function (event) {
-}
+// const onUpNavClick = function (event) {}
 
 const addHandlers = () => {
   // $('#sign-up-form').on('submit', onSignUp)
@@ -125,7 +129,8 @@ const addHandlers = () => {
   // $('#sign-in-form').on('submit', onSignIn)
   $('#sign-in-dropdown').on('submit', onSignIn)
   $('#change-password-form').on('submit', onChangePw)
-  $('#sign-out-button').on('click', onSignOut)
+  // $('#sign-out-button').on('click', onSignOut)
+  $('#sign-out-dropdown').on('submit', onSignOut)
   $('#create-recipe-form').on('submit', onCreateRecipe)
   $('#get-recipes-button').on('click', onGetRecipes)
   $('#get-recipe-form').on('submit', onGetRecipe)
@@ -136,7 +141,7 @@ const addHandlers = () => {
   $('#destroy-button').on('click', onDestroyClick)
   $('#show-button').on('click', onGetClick)
   $('#saved-button').on('click', onGetsClick)
-  $('sign-up-nav').on('click', onUpNavClick)
+  // $('sign-up-nav').on('click', onUpNavClick)
 }
 
 module.exports = {
