@@ -58,7 +58,12 @@ const onGetRecipes = function (event) {
 }
 const onGetMyRecipes = function (event) {
   event.preventDefault()
-
+  $('#update').hide()
+  $('.new-recipe').hide()
+  $('#create').hide()
+  $('#get').show()
+  $('#destroy').hide()
+  $('#get-recipe').hide()
   authApi.getMyRecipes()
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
@@ -73,6 +78,7 @@ const onGetRecipe = function (event) {
 const onUpdateRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+
   dataCheck(data)
   // console.log('dataCheck gives itselfs as ', dataCheck(data))
   authApi.updateRecipe(data)
@@ -82,6 +88,8 @@ const onUpdateRecipe = function (event) {
 const onDestroyRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  const dataId = $(event.target).closest('li').attr('data-id')
+  console.log(dataId)
   authApi.destroyRecipe(data)
     .then(authUi.destroyRecipeSuccess)
     .catch(authUi.destroyRecipeFailure)
@@ -111,14 +119,14 @@ const onDestroyClick = function (event) {
   $('#get-recipe').hide()
 }
 
-const onGetClick = function (event) {
-  $('#update').hide()
-  $('.new-recipe').hide()
-  $('#create').hide()
-  $('#get').show()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-}
+// const onGetClick = function (event) {
+//   $('#update').hide()
+//   $('.new-recipe').hide()
+//   $('#create').hide()
+//   $('#get').show()
+//   $('#destroy').hide()
+//   $('#get-recipe').hide()
+// }
 
 const onGetsClick = function (event) {
   $('#update').hide()
@@ -146,9 +154,10 @@ const addHandlers = () => {
   $('#create-button').on('click', onCreateClick)
   $('#update-button').on('click', onUpdateCLick)
   $('#destroy-button').on('click', onDestroyClick)
-  $('#show-button').on('click', onGetClick)
+  $('#show-button').on('click', onGetMyRecipes)
   $('#saved-button').on('click', onGetsClick)
-  $('#my-recipes-button').on('click', onGetMyRecipes)
+  $('.delete-button').on('click', console.log('you have clicked me'))
+  // $('#my-recipes-button').on('click', onGetMyRecipes)
   // $('sign-up-nav').on('click', onUpNavClick)
 }
 

@@ -50,9 +50,11 @@ const passwordFail = function () {
 const createRecipeSuccess = function (response) {
   console.log('you created a recipe, the respose is ', response)
   console.log('the store is ', store)
+  document.getElementById('create-recipe-form').reset()
+  $('#create').hide()
   // $('.new-recipe').show()
   // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
-  const newHTML = '<ul><li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li></ul>'
+  const newHTML = '<h2>New Recipe!</h2><li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
 }
@@ -72,7 +74,7 @@ const getRecipesSuccess = function (response) {
     if (recipe.name === '') {
       recipe.name = 'untitled'
     }
-    newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
+    newHTML += '<li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li>'
   })
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
@@ -89,7 +91,7 @@ const getMyRecipesSuccess = function (response) {
   console.log('store is ', store)
   let newHTML = ''
   response['recipes'].forEach(function (recipe) {
-    console.log(recipe.user_id)
+    // console.log(recipe.user_id)
     if (recipe.user_id === store.user.id) {
       newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
     }
@@ -99,7 +101,7 @@ const getMyRecipesSuccess = function (response) {
 }
 const getRecipeSuccess = function (response) {
   console.log('The response is ', response)
-  const newHTML = '<ul><li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li></ul>'
+  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
 }
@@ -108,8 +110,11 @@ const getRecipeFailure = function (getRecipeError) {
 }
 const updateRecipeSuccess = function (response) {
   console.log('The response is ', response)
-  $('.new-recipe').show()
-  $('.new-recipe-response').html('Name: ' + response['recipe'].name)
+  // $('.new-recipe').show()
+  // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
+  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  $('#get-recipe').show()
+  $('#get-recipe').html(newHTML)
 }
 const updateRecipeFailure = function (response) {
   console.log('The get error is ', response)

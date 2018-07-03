@@ -159,7 +159,7 @@
 
       <div id="buttons">
       <button id="create-button">Create Recipe</button>
-      <button id="update-button">Update Recipe</button>
+      <button id="update-button" class="update-button">Update Recipe</button>
       <button id="destroy-button">Delete Recipe</button>
       <button id="show-button">My Recipes</button>
       <!-- <button id="saved-button">All Recipies</button> -->
@@ -168,7 +168,7 @@
       <div id="create">
         <h3>Create</h3>
 
-        <form id="create-recipe-form">
+        <!-- <form id="create-recipe-form">
           <input name="name" placeholder="Name" type="text">
           <input name="description" placeholder="Description" type="text">
           <input name="extract" placeholder="Extract" type="text">
@@ -177,7 +177,59 @@
           <input name="yeast" placeholder="Yeast" type="text">
           <input name="directions" placeholder="Directions" type="text">
           <button type="submit">Create Recipe</button>
-        </form>
+        </form> -->
+    <form id="create-recipe-form">
+      <ul class="form-style-1">
+      <li><label>Recipe Name <span class="required">*</span></label><input name="name" placeholder="Name" type="text" class="field-long"></li>
+      <li>
+        <label>Description <span class="required">*</span></label>
+        <input type="text" name="description" placeholder="Recipe description"class="field-long" />
+      </li>
+      <li>
+        <label>Extract <span class="required">*</span></label>
+        <input type="text" name="extract" placeholder="Exctract"class="field-long" />
+      </li>
+      <li>
+        <label>Grains <span class="required">*</span></label>
+        <input type="text" name="grains" placeholder="Grains"class="field-long" />
+      </li>
+      <li>
+        <label>Hops <span class="required">*</span></label>
+        <input type="text" name="hops" placeholder="Hops"class="field-long" />
+      </li>
+      <li>
+        <label>Yeast <span class="required">*</span></label>
+        <input type="text" name="yeast" placeholder="Yeast"class="field-long" />
+      </li>
+      <li>
+        <label>Directions <span class="required">*</span></label>
+        <textarea  name="directions" placeholder="Directions" class="field-long field-textarea"></textarea>
+      </li>
+
+
+
+
+
+
+
+      <!-- <li>
+        <label>Subject</label>
+        <select name="field4" class="field-select">
+        <option value="Advertise">Advertise</option>
+        <option value="Partnership">Partnership</option>
+        <option value="General Question">General</option>
+        </select>
+      </li> -->
+      <!-- <li>
+        <label>Your Message <span class="required">*</span></label>
+        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+      </li> -->
+      <li>
+        <!-- <input type="submit" value="Submit" /> -->
+        <button type="submit">Create Recipe</button>
+      </li>
+    </ul>
+  </form>
 
         <div class="new-recipe">Your new recipe is
             <div class="new-recipe-response"></div>
@@ -190,21 +242,54 @@
           <input name="id" placeholder="ID" type="text">
           <button type="submit">Get Recipe</button>
         </form>
-        <button id='my-recipes-button' class="get-recipes btn btn-default">My Recipes</button>
+        <!-- <button id='my-recipes-button' class="get-recipes btn btn-default">My Recipes</button> -->
       </div>
 
       <div id="update">
         <h3>Update</h3>
         <form id="update-recipe-form">
-          <input name="id" placeholder="ID" type="text">
+          <!-- <input name="id" placeholder="ID" type="text">
           <input name="name" placeholder="Name" type="text">
           <input name="description" placeholder="Description" type="text">
           <input name="extract" placeholder="Extract" type="text">
           <input name="grains" placeholder="Grains" type="text">
           <input name="hops" placeholder="Hops" type="text">
           <input name="yeast" placeholder="Yeast" type="text">
-          <input name="directions" placeholder="Directions" type="text">
-          <button type="submit">Update Recipe</button>
+          <input name="directions" placeholder="Directions" type="text"> -->
+
+          <form id="update-recipe-form">
+            <ul class="form-style-1">
+              <label>Recipe ID <span class="required">*</span></label>
+              <input type="text" name="id" placeholder="ID"class="field-long" />
+            <li><label>Recipe Name <span class="required">*</span></label><input name="name" placeholder="Name" type="text" class="field-long"></li>
+            <li>
+              <label>Description <span class="required">*</span></label>
+              <input type="text" name="description" placeholder="Recipe description"class="field-long" />
+            </li>
+            <li>
+              <label>Extract <span class="required">*</span></label>
+              <input type="text" name="extract" placeholder="Exctract"class="field-long" />
+            </li>
+            <li>
+              <label>Grains <span class="required">*</span></label>
+              <input type="text" name="grains" placeholder="Grains"class="field-long" />
+            </li>
+            <li>
+              <label>Hops <span class="required">*</span></label>
+              <input type="text" name="hops" placeholder="Hops"class="field-long" />
+            </li>
+            <li>
+              <label>Yeast <span class="required">*</span></label>
+              <input type="text" name="yeast" placeholder="Yeast"class="field-long" />
+            </li>
+            <li>
+              <label>Directions <span class="required">*</span></label>
+              <textarea  name="directions" placeholder="Directions" class="field-long field-textarea"></textarea>
+            </li>
+            <li>
+              <button type="submit">Update Recipe</button>
+            </li>
+          </ul>
         </form>
 
         <div class="new-recipe">Your new recipe is
@@ -221,7 +306,7 @@
           <button type="submit">Destroy Recipe</button>
         </form>
       </div>
-      <div id="get-recipe"></div>
+      <div id="get-recipe" class"text-show"></div>
 
     </body>
 </html>
