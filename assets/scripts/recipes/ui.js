@@ -99,6 +99,9 @@ const getMyRecipesSuccess = function (response) {
 }
 const getRecipeSuccess = function (response) {
   console.log('The response is ', response)
+  const newHTML = '<ul><li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li></ul>'
+  $('#get-recipe').show()
+  $('#get-recipe').html(newHTML)
 }
 const getRecipeFailure = function (getRecipeError) {
   console.log('The get error is ', getRecipeError)
