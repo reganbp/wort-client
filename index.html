@@ -238,12 +238,22 @@
 
       <div id="get">
         <h3> Get </h3>
-        <form id="get-recipe-form">
+        <!-- <form id="get-recipe-form">
           <input name="id" placeholder="ID" type="text">
           <button type="submit">Get Recipe</button>
-        </form>
-        <!-- <button id='my-recipes-button' class="get-recipes btn btn-default">My Recipes</button> -->
+        </form> -->
+        <form id="get-recipe-form">
+          <ul class="form-style-1">
+            <label>Enter ID to see the recipe<span class="required">*</span></label>
+            <input type="text" name="id" placeholder="ID"class="field-long" />
+          <li>
+            <button type="submit">See Recipe</button>
+          </li>
+        </ul>
+      </form>
       </div>
+        <!-- <button id='my-recipes-button' class="get-recipes btn btn-default">My Recipes</button> -->
+      <!-- </div> -->
 
       <div id="update">
         <h3>Update</h3>
@@ -297,7 +307,7 @@
         </form> -->
         <form id="destroy-recipe-form">
           <ul class="form-style-1">
-            <label>Recipe ID <span class="required">*</span></label>
+            <label>Recipe ID<span class="required">*</span></label>
             <input type="text" name="id" placeholder="ID"class="field-long" />
           <li>
             <button type="submit">Delete Recipe</button>

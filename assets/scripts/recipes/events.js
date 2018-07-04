@@ -129,14 +129,17 @@ const onDestroyClick = function (event) {
     .catch(authUi.getMyRecipesFailure)
 }
 
-// const onGetClick = function (event) {
-//   $('#update').hide()
-//   $('.new-recipe').hide()
-//   $('#create').hide()
-//   $('#get').show()
-//   $('#destroy').hide()
-//   $('#get-recipe').hide()
-// }
+const onGetClick = function (event) {
+  $('#update').hide()
+  $('.new-recipe').hide()
+  $('#create').hide()
+  $('#get').show()
+  $('#destroy').hide()
+  $('#get-recipe').hide()
+  authApi.getMyRecipes()
+    .then(authUi.getMyRecipesSuccess)
+    .catch(authUi.getMyRecipesFailure)
+}
 
 const onGetsClick = function (event) {
   $('#update').hide()
@@ -165,6 +168,7 @@ const addHandlers = () => {
   $('#update-button').on('click', onUpdateCLick)
   $('#destroy-button').on('click', onDestroyClick)
   $('#show-button').on('click', onGetMyRecipes)
+  $('#show-button').on('click', onGetClick)
   $('#saved-button').on('click', onGetsClick)
   // $('.delete-button').on('click', console.log('you have clicked me'))
   // $('#my-recipes-button').on('click', onGetMyRecipes)
