@@ -123,6 +123,9 @@ const updateRecipeFailure = function (response) {
 }
 const destroyRecipeSuccess = function (successResponse) {
   console.log('Nice response is ', successResponse)
+  document.getElementById('destroy-recipe-form').reset()
+  $('#get-recipe').show()
+  $('#get-recipe').html('Recipe deleted')
 }
 const destroyRecipeFailure = function (failResponse) {
   console.log('Bad get error is ', failResponse)

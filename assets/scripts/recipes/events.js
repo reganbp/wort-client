@@ -88,8 +88,8 @@ const onUpdateRecipe = function (event) {
 const onDestroyRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  const dataId = $(event.target).closest('li').attr('data-id')
-  console.log(dataId)
+  // const dataId = $(event.target).closest('li').attr('data-id')
+  // console.log(dataId)
   authApi.destroyRecipe(data)
     .then(authUi.destroyRecipeSuccess)
     .catch(authUi.destroyRecipeFailure)
@@ -121,7 +121,12 @@ const onDestroyClick = function (event) {
   $('#create').hide()
   $('#get').hide()
   $('#destroy').show()
+  // $('#destroy-recipe-form').show()
   $('#get-recipe').hide()
+
+  authApi.getMyRecipes()
+    .then(authUi.getMyRecipesSuccess)
+    .catch(authUi.getMyRecipesFailure)
 }
 
 // const onGetClick = function (event) {
@@ -161,7 +166,7 @@ const addHandlers = () => {
   $('#destroy-button').on('click', onDestroyClick)
   $('#show-button').on('click', onGetMyRecipes)
   $('#saved-button').on('click', onGetsClick)
-  $('.delete-button').on('click', console.log('you have clicked me'))
+  // $('.delete-button').on('click', console.log('you have clicked me'))
   // $('#my-recipes-button').on('click', onGetMyRecipes)
   // $('sign-up-nav').on('click', onUpNavClick)
 }

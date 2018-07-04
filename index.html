@@ -247,16 +247,6 @@
 
       <div id="update">
         <h3>Update</h3>
-        <form id="update-recipe-form">
-          <!-- <input name="id" placeholder="ID" type="text">
-          <input name="name" placeholder="Name" type="text">
-          <input name="description" placeholder="Description" type="text">
-          <input name="extract" placeholder="Extract" type="text">
-          <input name="grains" placeholder="Grains" type="text">
-          <input name="hops" placeholder="Hops" type="text">
-          <input name="yeast" placeholder="Yeast" type="text">
-          <input name="directions" placeholder="Directions" type="text"> -->
-
           <form id="update-recipe-form">
             <ul class="form-style-1">
               <label>Recipe ID <span class="required">*</span></label>
@@ -301,10 +291,19 @@
 
       <div id="destroy">
         <h3> Destroy </h3>
-        <form id="destroy-recipe-form">
+        <!-- <form id="destroy-recipe-form">
           <input name="id" placeholder="ID" type="text">
           <button type="submit">Destroy Recipe</button>
-        </form>
+        </form> -->
+        <form id="destroy-recipe-form">
+          <ul class="form-style-1">
+            <label>Recipe ID <span class="required">*</span></label>
+            <input type="text" name="id" placeholder="ID"class="field-long" />
+          <li>
+            <button type="submit">Delete Recipe</button>
+          </li>
+        </ul>
+      </form>
       </div>
       <div id="get-recipe" class"text-show"></div>
 
