@@ -101,6 +101,7 @@ const onCreateClick = function (event) {
   $('#update').hide()
   $('#destroy').hide()
   $('#get-recipe').hide()
+  $('#delete-recipe').hide()
 }
 const onUpdateCLick = function (event) {
   $('#update').show()
@@ -110,6 +111,7 @@ const onUpdateCLick = function (event) {
   $('#destroy').hide()
   $('#get-recipe').hide()
   $('#update-recipe-form').show()
+  $('#delete-recipe').hide()
 
   authApi.getMyRecipes()
     .then(authUi.getMyRecipesSuccess)
@@ -123,6 +125,7 @@ const onDestroyClick = function (event) {
   $('#destroy').show()
   // $('#destroy-recipe-form').show()
   $('#get-recipe').hide()
+  $('#delete-recipe').hide()
 
   authApi.getMyRecipes()
     .then(authUi.getMyRecipesSuccess)
@@ -135,6 +138,7 @@ const onGetClick = function (event) {
   $('#get').show()
   $('#destroy').hide()
   $('#get-recipe').hide()
+  $('#delete-recipe').hide()
   authApi.getMyRecipes()
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
@@ -146,6 +150,7 @@ const onGetsClick = function (event) {
   $('#get').show()
   $('#destroy').hide()
   $('#get-recipe').hide()
+  $('#delete-recipe').hide()
 }
 // const onUpNavClick = function (event) {}
 

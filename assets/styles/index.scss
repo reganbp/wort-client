@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+.text-show {
+  text-align: left;
+}
+
 .form-style-1 {
     margin:10px auto;
     max-width: 400px;
@@ -133,9 +137,6 @@ select {
   font-weight: bold;
 }
 
-.text-show {
-  text-align: left;
-}
 
 /* Change the background color on mouse-over */
 // .header a:hover {

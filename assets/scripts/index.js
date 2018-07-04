@@ -19,4 +19,5 @@ $(() => {
   $('#buttons').hide()
   $('.after-button').hide()
   $('#get-recipe').hide()
+  $('#delete-recipe').hide()
 })

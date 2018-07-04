@@ -138,7 +138,9 @@ const updateRecipeSuccess = function (response) {
   // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
   const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   document.getElementById('update-recipe-form').reset()
-  $('#update-recipe-form').hide()
+  $('#update').hide()
+  $('#delete-recipe').show()
+  $('#delete-recipe').html('<h3>Recipe Updated</h3>')
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
 }
@@ -150,8 +152,11 @@ const updateRecipeFailure = function (response) {
 const destroyRecipeSuccess = function (successResponse) {
   // console.log('Nice response is ', successResponse)
   document.getElementById('destroy-recipe-form').reset()
-  $('#get-recipe').show()
-  $('#get-recipe').html('<h4>Recipe deleted</h4>')
+  // $('#destroy-pass').modal()
+  $('#get-recipe').hide()
+  $('#destroy').hide()
+  $('#delete-recipe').show()
+  $('#delete-recipe').html('<h3>Recipe Removed</h3>')
 }
 const destroyRecipeFailure = function (failResponse) {
   // console.log('Bad get error is ', failResponse)
