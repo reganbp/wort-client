@@ -109,6 +109,11 @@ const onUpdateCLick = function (event) {
   $('#get').hide()
   $('#destroy').hide()
   $('#get-recipe').hide()
+  $('#update-recipe-form').show()
+
+  authApi.getMyRecipes()
+    .then(authUi.getMyRecipesSuccess)
+    .catch(authUi.getMyRecipesFailure)
 }
 const onDestroyClick = function (event) {
   $('#update').hide()

@@ -113,6 +113,8 @@ const updateRecipeSuccess = function (response) {
   // $('.new-recipe').show()
   // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
   const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Descrition: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  document.getElementById('update-recipe-form').reset()
+  $('#update-recipe-form').hide()
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
 }
