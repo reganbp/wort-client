@@ -51,6 +51,13 @@ const onCreateRecipe = function (event) {
 }
 const onGetRecipes = function (event) {
   event.preventDefault()
+  $('#update').hide()
+  $('.new-recipe').hide()
+  $('#create').hide()
+  $('#get').show()
+  $('#destroy').hide()
+  $('#get-recipe').hide()
+  $('#delete-recipe').hide()
 
   authApi.getRecipes()
     .then(authUi.getRecipesSuccess)
@@ -143,15 +150,14 @@ const onGetClick = function (event) {
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
 }
-const onGetsClick = function (event) {
-  $('#update').hide()
-  $('.new-recipe').hide()
-  $('#create').hide()
-  $('#get').show()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-  $('#delete-recipe').hide()
-}
+// const onGetsClick = function (event) {
+//   $('#update').hide()
+//   $('.new-recipe').hide()
+//   $('#create').hide()
+//   $('#get').show()
+//   $('#destroy').hide()
+//   $('#get-recipe').hide()
+// }
 // const onUpNavClick = function (event) {}
 
 const addHandlers = () => {
@@ -172,7 +178,7 @@ const addHandlers = () => {
   $('#destroy-button').on('click', onDestroyClick)
   $('#show-button').on('click', onGetMyRecipes)
   $('#show-button').on('click', onGetClick)
-  $('#saved-button').on('click', onGetsClick)
+  // $('#saved-button').on('click', onGetsClick)
   // $('.delete-button').on('click', console.log('you have clicked me'))
   // $('#my-recipes-button').on('click', onGetMyRecipes)
   // $('sign-up-nav').on('click', onUpNavClick)
