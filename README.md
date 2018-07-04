@@ -61,4 +61,4 @@ As a user of this game I would like...
 ---
 Back end repo
 
-[Back End](https://github.com/reganbp/wort-client)
+[Back End](https://github.com/reganbp/wort-api)
