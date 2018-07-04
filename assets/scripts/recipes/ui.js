@@ -1,5 +1,4 @@
 const store = require('../store')
-// const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 
 const signUpSuccess = function (signUpResponse) {
   // console.log('signUpResponse ', signUpResponse)
@@ -92,7 +91,7 @@ const getRecipesSuccess = function (response) {
     if (recipe.name === '') {
       recipe.name = 'untitled'
     }
-    newHTML += '<li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li>'
+    newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
   })
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
@@ -121,7 +120,7 @@ const getMyRecipesSuccess = function (response) {
   $('#get-recipe').html(newHTML)
 }
 const getRecipeSuccess = function (response) {
-  // console.log('The response is ', response)
+  // console.log('The response is ', response['recipe'].id)
   document.getElementById('get-recipe-form').reset()
   const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   $('#get-recipe').show()

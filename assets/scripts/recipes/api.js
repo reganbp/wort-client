@@ -58,9 +58,6 @@ const getMyRecipes = function () {
   })
 }
 const getRecipe = function (data) {
-  // console.log('data is ', data)
-  // console.log('data.id is ', data.id)
-  // console.log('store is ', store)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/recipes/' + data.id,

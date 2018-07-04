@@ -63,24 +63,28 @@ const onGetRecipes = function (event) {
     .then(authUi.getRecipesSuccess)
     .catch(authUi.getRecipesFailure)
 }
-const onGetMyRecipes = function (event) {
-  event.preventDefault()
-  $('#update').hide()
-  $('.new-recipe').hide()
-  $('#create').hide()
-  $('#get').show()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-  authApi.getMyRecipes()
-    .then(authUi.getMyRecipesSuccess)
-    .catch(authUi.getMyRecipesFailure)
-}
+// const onGetMyRecipes = function (event) {
+//   event.preventDefault()
+//   $('#update').hide()
+//   $('.new-recipe').hide()
+//   $('#create').hide()
+//   $('#get').show()
+//   $('#destroy').hide()
+//   $('#get-recipe').hide()
+//   authApi.getMyRecipes()
+//     .then(authUi.getMyRecipesSuccess)
+//     .catch(authUi.getMyRecipesFailure)
+// }
 const onGetRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  authApi.getRecipe(data)
-    .then(authUi.getRecipeSuccess)
-    .catch(authUi.getRecipeFailure)
+  if (data.id === '') {
+    authUi.getRecipeFailure()
+  } else {
+    authApi.getRecipe(data)
+      .then(authUi.getRecipeSuccess)
+      .catch(authUi.getRecipeFailure)
+  }
 }
 const onUpdateRecipe = function (event) {
   event.preventDefault()
@@ -176,7 +180,7 @@ const addHandlers = () => {
   $('#create-button').on('click', onCreateClick)
   $('#update-button').on('click', onUpdateCLick)
   $('#destroy-button').on('click', onDestroyClick)
-  $('#show-button').on('click', onGetMyRecipes)
+  // $('#show-button').on('click', onGetMyRecipes)
   $('#show-button').on('click', onGetClick)
   // $('#saved-button').on('click', onGetsClick)
   // $('.delete-button').on('click', console.log('you have clicked me'))
