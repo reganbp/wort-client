@@ -49,6 +49,7 @@ const signOutSuccess = function (response) {
   $('#get').hide()
   $('#destroy').hide()
   $('#get-recipe').hide()
+  $('#delete-recipe').hide()
   // $('#sign-up-form').hide()
   // $('#sign-in-form').show()
 }
