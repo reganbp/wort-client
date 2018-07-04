@@ -23,7 +23,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('data is ', data)
+  // console.log('data is ', data)
   authApi.signIn(data)
     .then(authUi.signInSuccess)
     .catch(authUi.signInFailure)
@@ -128,7 +128,6 @@ const onDestroyClick = function (event) {
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
 }
-
 const onGetClick = function (event) {
   $('#update').hide()
   $('.new-recipe').hide()
@@ -140,7 +139,6 @@ const onGetClick = function (event) {
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
 }
-
 const onGetsClick = function (event) {
   $('#update').hide()
   $('.new-recipe').hide()
@@ -156,7 +154,7 @@ const addHandlers = () => {
   $('#sign-up-dropdown').on('submit', onSignUp)
   // $('#sign-in-form').on('submit', onSignIn)
   $('#sign-in-dropdown').on('submit', onSignIn)
-  $('#change-password-form').on('submit', onChangePw)
+  $('#change-password-dropdown').on('submit', onChangePw)
   // $('#sign-out-button').on('click', onSignOut)
   $('#sign-out-dropdown').on('submit', onSignOut)
   $('#create-recipe-form').on('submit', onCreateRecipe)

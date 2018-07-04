@@ -134,7 +134,175 @@
 	<!-- </div> -->
 </nav>
 
-      <h1 class="title">Project 2 time</h1>
+<div class="modal fade" id="in-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Incorrect user name or password
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="in-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="up-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    That username is taken or passwords do not match, try again!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="out-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    We didn't sign you out, try again!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="pass-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Are you sure that was your old password?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="create-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Something went wrong, try again.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="get-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    That recipe ID does not exist
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="update-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    You can't update a recipe you didn't create! Please check the ID on your list.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="destroy-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    You can't remove a recipe you didn't create! Please check the ID on your list.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <h1 class="title">Welcome to Worts & All</h1><h4>Your Homebrew Recipe Resource</h4>
 
       <form id='sign-up-form'>
         <input name="credentials[email]" placeholder="Email" type="email">
@@ -160,13 +328,13 @@
       <div id="buttons">
       <button id="create-button">Create Recipe</button>
       <button id="update-button" class="update-button">Update Recipe</button>
-      <button id="destroy-button">Delete Recipe</button>
+      <button id="destroy-button">Remove Recipe</button>
       <button id="show-button">My Recipes</button>
       <!-- <button id="saved-button">All Recipies</button> -->
       <button id="get-recipes-button">All Recipies</button>
       </div>
       <div id="create">
-        <h3>Create</h3>
+        <h3>Create a New Recipe</h3>
 
         <!-- <form id="create-recipe-form">
           <input name="name" placeholder="Name" type="text">
@@ -237,7 +405,7 @@
       </div>
 
       <div id="get">
-        <h3> Get </h3>
+        <h3>Recipes</h3>
         <!-- <form id="get-recipe-form">
           <input name="id" placeholder="ID" type="text">
           <button type="submit">Get Recipe</button>
@@ -256,7 +424,8 @@
       <!-- </div> -->
 
       <div id="update">
-        <h3>Update</h3>
+        <h3>Update A Recipe From Your List Below</h3>
+        <h5>If you have none, go create one!</h5>
           <form id="update-recipe-form">
             <ul class="form-style-1">
               <label>Recipe ID <span class="required">*</span></label>
@@ -300,7 +469,8 @@
       </div>
 
       <div id="destroy">
-        <h3> Destroy </h3>
+        <h3>Remove A Recipe From You List Below</h3>
+        <h5>If you have none, go create one!</h5>
         <!-- <form id="destroy-recipe-form">
           <input name="id" placeholder="ID" type="text">
           <button type="submit">Destroy Recipe</button>
@@ -310,11 +480,12 @@
             <label>Recipe ID<span class="required">*</span></label>
             <input type="text" name="id" placeholder="ID"class="field-long" />
           <li>
-            <button type="submit">Delete Recipe</button>
+            <button type="submit">Remove Recipe</button>
           </li>
         </ul>
       </form>
       </div>
+
       <div id="get-recipe" class"text-show"></div>
 
     </body>

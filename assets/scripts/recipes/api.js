@@ -17,8 +17,8 @@ const signIn = function (data) {
   })
 }
 const changePw = function (data) {
-  console.log('store is ', store)
-  console.log('token is ', store.user.token)
+  // console.log('store is ', store)
+  // console.log('token is ', store.user.token)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
@@ -38,7 +38,7 @@ const signOut = function () {
   })
 }
 const getRecipes = function () {
-  console.log('did I get recipes?')
+  // console.log('did I get recipes?')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/recipes',
@@ -48,7 +48,7 @@ const getRecipes = function () {
   })
 }
 const getMyRecipes = function () {
-  console.log('did I get recipes?')
+  // console.log('did I get recipes?')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/recipes',
@@ -58,9 +58,9 @@ const getMyRecipes = function () {
   })
 }
 const getRecipe = function (data) {
-  console.log('data is ', data)
-  console.log('data.id is ', data.id)
-  console.log('store is ', store)
+  // console.log('data is ', data)
+  // console.log('data.id is ', data.id)
+  // console.log('store is ', store)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/recipes/' + data.id,
@@ -71,7 +71,7 @@ const getRecipe = function (data) {
 }
 const createRecipe = function (data) {
   data.user_id = store.user.id
-  console.log('the data is ', data)
+  // console.log('the data is ', data)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/recipes',
