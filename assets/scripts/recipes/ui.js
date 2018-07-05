@@ -74,7 +74,7 @@ const createRecipeSuccess = function (response) {
   $('#create').hide()
   // $('.new-recipe').show()
   // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
-  const newHTML = '<h2>New Recipe!</h2><li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  const newHTML = '<h2>New Recipe!</h2><li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
 }
@@ -123,7 +123,7 @@ const getMyRecipesSuccess = function (response) {
 const getRecipeSuccess = function (response) {
   // console.log('The response is ', response['recipe'].id)
   document.getElementById('get-recipe-form').reset()
-  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   $('#get-recipe').show()
   $('#get-recipe').html(newHTML)
 }
@@ -136,7 +136,7 @@ const updateRecipeSuccess = function (response) {
   // console.log('The response is ', response)
   // $('.new-recipe').show()
   // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
-  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
   document.getElementById('update-recipe-form').reset()
   $('#update').hide()
   $('#delete-recipe').show()
