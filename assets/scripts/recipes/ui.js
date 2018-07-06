@@ -115,14 +115,14 @@ const getMyRecipesSuccess = function (response) {
     // console.log(recipe.user_id)
     // console.log(store.user.id)
     if (recipe.user_id === store.user.id) {
-      console.log('recipe is ', recipe.user_id)
+      // console.log('recipe is ', recipe.user_id)
       newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
-    }
-    if (newHTML === '') {
-      newHTML = '<h4>You have no recipes. Go ahead and create one!</h4>'
     }
   })
   $('#get-recipe').show()
+  if (newHTML === '') {
+    newHTML = '<h4>You have no recipes. Go ahead and create one!</h4>'
+  }
   $('#get-recipe').html(newHTML)
 }
 const getRecipeSuccess = function (response) {
