@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Worts & All</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="header">
+        <a href="#default" class="logo">Worts & All</a>
+        <!-- <div class="header-right">
+          <a class="active" href="#home">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div> -->
+      </div>
+      <!-- <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news" id='sign-up-nav'>Sign Up</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div> -->
+
+
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+	<div class="navbar-header d-flex col">
+		<!-- <a class="navbar-brand" href="#">Brand<b>Name</b></a> -->
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+			<span class="navbar-toggler-icon"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<!-- <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+		<ul class="nav navbar-nav">
+			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+			<li class="nav-item dropdown">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#" class="dropdown-item">Web Design</a></li>
+					<li><a href="#" class="dropdown-item">Web Development</a></li>
+					<li><a href="#" class="dropdown-item">Graphic Design</a></li>
+					<li><a href="#" class="dropdown-item">Digital Marketing</a></li>
+				</ul>
+			</li>
+			<li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+		</ul> -->
+		<!-- <form class="navbar-form form-inline">
+			<div class="input-group search-box">
+				<input type="text" id="search" class="form-control" placeholder="Search here...">
+				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+			</div>
+		</form> -->
+		<ul class="nav navbar-nav navbar-right ml-auto">
+			<li class="nav-item before-button">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" >Login</a>
+				<ul class="dropdown-menu form-wrapper">
+					<li>
+						<form id="sign-in-dropdown">
+							<div class="form-group" >
+                <input name="credentials[email]" placeholder="Email" type="email">
+							</div>
+							<div class="form-group">
+								<input name="credentials[password]" placeholder="Password" type="password">
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Login">
+						</form>
+					</li>
+				</ul>
+			</li>
+			<li class="nav-item before-button">
+				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+				<ul class="dropdown-menu form-wrapper">
+					<li>
+						<form  id="sign-up-dropdown">
+							<p class="hint-text">Fill in this form to create your account!</p>
+							<div class="form-group">
+								<input name="credentials[email]" placeholder="Email" type="email">
+							</div>
+							<div class="form-group">
+								<input name="credentials[password]" placeholder="Password" type="password">
+							</div>
+							<div class="form-group">
+								<input name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Sign up">
+						</form>
+					</li>
+				</ul>
+			</li>
+      <li class="nav-item after-button">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" >Change Password</a>
+				<ul class="dropdown-menu form-wrapper">
+					<li>
+						<form id="change-password-dropdown">
+							<div class="form-group" >
+                <input name="passwords[old]" placeholder="Old Password" type="password">
+							</div>
+							<div class="form-group">
+								<input name="passwords[new]" placeholder="New Password" type="password">
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Change Password">
+						</form>
+					</li>
+				</ul>
+			</li>
+      <li class="nav-item after-button">
+        <a data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" >Sign out</a>
+				<ul class="dropdown-menu form-wrapper">
+					<li>
+						<form id="sign-out-dropdown">
+							<div class="form-group" >
+                Are you sure?
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Sign Out">
+						</form>
+					</li>
+				</ul>
+			</li>
+				<!-- <button id="sign-out-button" class="sign-out btn btn-block">Sign Out</button>
+			</li> -->
+		</ul>
+	<!-- </div> -->
+</nav>
+
+<div class="modal fade" id="in-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Incorrect user name or password
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="in-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="up-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    That username is taken or passwords do not match, try again!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="out-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    We didn't sign you out, try again!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="pass-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Are you sure that was your old password?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="create-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    Something went wrong, try again.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="get-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    That recipe ID does not exist
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="update-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    You can't update a recipe you didn't create! Please check the ID on your list.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="destroy-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    You can't remove a recipe you didn't create! Please check the ID on your list.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="destroy-pass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    You have removed a recipe.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="get-empty" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+      You must enter an ID
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <h1 class="title">Welcome to Worts & All</h1><h4>Your Homebrew Recipe Resource</h4>
+
+      <form id='sign-up-form'>
+        <input name="credentials[email]" placeholder="Email" type="email">
+        <input name="credentials[password]" placeholder="Password" type="password">
+        <input name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <form id="sign-in-form">
+        <input name="credentials[email]" placeholder="Email" type="email">
+        <input name="credentials[password]" placeholder="Password" type="password">
+        <button type="submit">Sign In</button>
+      </form>
+
+      <form id="change-password-form">
+        <input name="passwords[old]" placeholder="Old Password" type="password">
+        <input name="passwords[new]" placeholder="New Password" type="password">
+        <button type="submit">Change Password</button>
+      </form>
+
+      <!-- <button id='sign-out-button' class="sign-out after-button btn btn-light">Sign Out</button> -->
+
+      <div id="buttons">
+      <button id="create-button">Create Recipe</button>
+      <button id="update-button" class="update-button">Update Recipe</button>
+      <button id="destroy-button">Remove Recipe</button>
+      <button id="show-button">My Recipes</button>
+      <!-- <button id="saved-button">All Recipies</button> -->
+      <button id="get-recipes-button">All Recipies</button>
+      </div>
+      <div id="create">
+        <h3>Create a New Recipe</h3>
+
+        <!-- <form id="create-recipe-form">
+          <input name="name" placeholder="Name" type="text">
+          <input name="description" placeholder="Description" type="text">
+          <input name="extract" placeholder="Extract" type="text">
+          <input name="grains" placeholder="Grains" type="text">
+          <input name="hops" placeholder="Hops" type="text">
+          <input name="yeast" placeholder="Yeast" type="text">
+          <input name="directions" placeholder="Directions" type="text">
+          <button type="submit">Create Recipe</button>
+        </form> -->
+    <form id="create-recipe-form">
+      <ul class="form-style-1">
+      <li><label>Recipe Name </label><input name="name" placeholder="Name" type="text" class="field-long"></li>
+      <li>
+        <label>Description </label>
+        <input type="text" name="description" placeholder="Recipe description"class="field-long" />
+      </li>
+      <li>
+        <label>Extract </label>
+        <input type="text" name="extract" placeholder="Exctract"class="field-long" />
+      </li>
+      <li>
+        <label>Grains </label>
+        <input type="text" name="grains" placeholder="Grains"class="field-long" />
+      </li>
+      <li>
+        <label>Hops </label>
+        <input type="text" name="hops" placeholder="Hops"class="field-long" />
+      </li>
+      <li>
+        <label>Yeast </label>
+        <input type="text" name="yeast" placeholder="Yeast"class="field-long" />
+      </li>
+      <li>
+        <label>Directions </label>
+        <textarea  name="directions" placeholder="Directions" class="field-long field-textarea"></textarea>
+      </li>
+
+
+
+
+
+
+
+      <!-- <li>
+        <label>Subject</label>
+        <select name="field4" class="field-select">
+        <option value="Advertise">Advertise</option>
+        <option value="Partnership">Partnership</option>
+        <option value="General Question">General</option>
+        </select>
+      </li> -->
+      <!-- <li>
+        <label>Your Message </label>
+        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+      </li> -->
+      <li>
+        <!-- <input type="submit" value="Submit" /> -->
+        <button type="submit">Create Recipe</button>
+      </li>
+    </ul>
+  </form>
+
+
+      </div>
+
+      <div id="get">
+        <h3>Recipes</h3>
+        <!-- <form id="get-recipe-form">
+          <input name="id" placeholder="ID" type="text">
+          <button type="submit">Get Recipe</button>
+        </form> -->
+        <form id="get-recipe-form">
+          <ul class="form-style-1">
+            <label>Enter ID to see the recipe<span class="required">*</span></label>
+            <input type="text" name="id" placeholder="ID"class="field-long" />
+          <li>
+            <button type="submit">See Recipe</button>
+          </li>
+        </ul>
+      </form>
+      </div>
+        <!-- <button id='my-recipes-button' class="get-recipes btn btn-default">My Recipes</button> -->
+      <!-- </div> -->
+
+      <div id="update">
+        <h3>Update A Recipe From Your List Below</h3>
+        <!-- <h5>If you have none, go create one!</h5> -->
+          <form id="update-recipe-form">
+            <ul class="form-style-1">
+              <label>Recipe ID <span class="required">*</span></label>
+              <input type="text" name="id" placeholder="ID"class="field-long" />
+            <li><label>Recipe Name </label><input name="name" placeholder="Name" type="text" class="field-long"></li>
+            <li>
+              <label>Description </label>
+              <input type="text" name="description" placeholder="Recipe description"class="field-long" />
+            </li>
+            <li>
+              <label>Extract </label>
+              <input type="text" name="extract" placeholder="Exctract"class="field-long" />
+            </li>
+            <li>
+              <label>Grains </label>
+              <input type="text" name="grains" placeholder="Grains"class="field-long" />
+            </li>
+            <li>
+              <label>Hops</label>
+              <input type="text" name="hops" placeholder="Hops"class="field-long" />
+            </li>
+            <li>
+              <label>Yeast </label>
+              <input type="text" name="yeast" placeholder="Yeast"class="field-long" />
+            </li>
+            <li>
+              <label>Directions </label>
+              <textarea  name="directions" placeholder="Directions" class="field-long field-textarea"></textarea>
+            </li>
+            <li>
+              <button type="submit">Update Recipe</button>
+            </li>
+          </ul>
+        </form>
+
+        <div class="new-recipe">Your new recipe is
+            <div class="new-recipe-response"></div>
+        </div>
+
+        <!-- <div id="get-recipe">TEst this out</div> -->
+      </div>
+
+      <div id="destroy">
+        <h3>Remove A Recipe From You List Below</h3>
+        <!-- <h5>If you have none, go create one!</h5> -->
+        <!-- <form id="destroy-recipe-form">
+          <input name="id" placeholder="ID" type="text">
+          <button type="submit">Destroy Recipe</button>
+        </form> -->
+        <form id="destroy-recipe-form">
+          <ul class="form-style-1">
+            <label>Recipe ID<span class="required">*</span></label>
+            <input type="text" name="id" placeholder="ID"class="field-long" />
+          <li>
+            <button type="submit">Remove Recipe</button>
+          </li>
+        </ul>
+      </form>
+      </div>
+      <div id="delete-recipe"></div>
+      <div id="get-recipe" class"text-show"></div>
+
+    </body>
+</html>
