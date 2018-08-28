@@ -1,0 +1,46 @@
+{{#each recipes as |recipe|}}
+
+<!-- {{> partial}} -->
+
+
+ <!-- Developers, why are we using data-id and not just id? -->
+ <div class="container-fluid col-lg-6 list">
+  <h1 data-id="{{recipe.id}}" class="my-recipe"> <small>Name: {{recipe.name}}</small></h1>
+  <ul data-id="{{recipe.id}}">
+    <li>{{#if recipe.description}}
+      {{recipe.description}}
+    {{else}}
+      No description provided.
+    {{/if}}</li>
+    <li>{{#if recipe.extract}}
+      {{recipe.extract}}
+    {{else}}
+      No extract provided.
+    {{/if}}</li>
+    <li>{{#if recipe.grains}}
+      {{recipe.grains}}
+    {{else}}
+      No grains provided.
+    {{/if}}</li>
+    <li>{{#if recipe.hops}}
+      {{recipe.hops}}
+    {{else}}
+      No hops provided.
+    {{/if}}</li>
+    <li>{{#if recipe.yeast}}
+      {{recipe.yeast}}
+    {{else}}
+      No yeast provided.
+    {{/if}}</li>
+    <li>{{#if recipe.directions}}
+      {{recipe.directions}}
+    {{else}}
+      No directions provided.
+    {{/if}}</li>
+    <li class="handlebars-form-hidden-{{rating.id}}"><button class="view-recipe">View</button></li>
+    <li class="handlebars-form-hidden-{{rating.id}}"><button class="remove-recipe">Remove</button></li>
+  </ul>
+</div>
+
+
+{{/each}}

@@ -1,11 +1,11 @@
 const store = require('../store')
+// const sand = require('../sandbox')
+const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
+const showMyRecipesTemplate = require('../templates/my-recipe-listing.handlebars')
+const showOneRecipeTemplate = require('../templates/view-one-listing.handlebars')
 
 const signUpSuccess = function (signUpResponse) {
-  // console.log('signUpResponse ', signUpResponse)
-  document.getElementById('sign-up-dropdown').reset()
-  // $('#sign-up-modal').modal('hide')
-  // document.getElementById('sign-up-form').reset()
-  // document.getElementById('sign-in-form').reset()
+  // document.getElementById('sign-up-dropdown').reset()
   $('#in-success').modal()
 }
 const signUpFailure = function (signUpError) {
@@ -16,13 +16,13 @@ const signUpFailure = function (signUpError) {
 const signInSuccess = function (response) {
   // console.log('response ', response)
   store.user = response.user
-  document.getElementById('sign-in-form').reset()
+  // document.getElementById('sign-in-form').reset()
   document.getElementById('sign-in-dropdown').reset()
-  $('#buttons').show()
+  // $('#buttons').show()
   $('.before-button').hide()
   $('.after-button').show()
-  $('#sign-up-form').hide()
-  $('#sign-in-form').hide()
+  // $('#sign-up-form').hide()
+  // $('#sign-in-form').hide()
   // $('#create').show()
   // $('#get').show()
   // $('#update').show()
@@ -40,16 +40,16 @@ const signOutSuccess = function (response) {
   document.getElementById('change-password-dropdown').reset()
   document.getElementById('sign-in-dropdown').reset()
   document.getElementById('sign-up-dropdown').reset()
-  $('#buttons').hide()
+  // $('#buttons').hide()
   $('.before-button').show()
   $('.after-button').hide()
-  $('#update').hide()
-  $('.new-recipe').hide()
-  $('#create').hide()
-  $('#get').hide()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-  $('#delete-recipe').hide()
+  // $('#update').hide()
+  // $('.new-recipe').hide()
+  // $('#create').hide()
+  // $('#get').hide()
+  // $('#destroy').hide()
+  // $('#get-recipe').hide()
+  // $('#delete-recipe').hide()
   // $('#sign-up-form').hide()
   // $('#sign-in-form').show()
 }
@@ -85,19 +85,21 @@ const createRecipeFailure = function (response) {
 }
 const getRecipesSuccess = function (response) {
   // console.log('The response is ', response)
-  document.getElementById('get-recipe-form').reset()
-  let newHTML = ''
-  response['recipes'].forEach(function (recipe) {
-    // console.log(recipe.user_id)
-    if (recipe.name === '') {
-      recipe.name = 'untitled'
-    }
-    newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
-  })
+  // document.getElementById('get-recipe-form').reset()
+  // let newHTML = ''
+  // response['recipes'].forEach(function (recipe) {
+  //   // console.log(recipe.user_id)
+  //   if (recipe.name === '') {
+  //     recipe.name = 'untitled'
+  //   }
+  //   newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
+  // })
+  // $('#get-recipe').show()
+  // $('#get-recipe').html(newHTML)
+
+  const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
   $('#get-recipe').show()
-  $('#get-recipe').html(newHTML)
-  // const showRecipesHtml = showRecipesTemplate({ recipe: response.recipe })
-  // $('.new-recipe').html(showRecipesHtml)
+  $('#get-recipe').html(showRecipesHtml)
 }
 
 const getRecipesFailure = function (getRecipesError) {
@@ -107,35 +109,34 @@ const getRecipesFailure = function (getRecipesError) {
 }
 const getMyRecipesSuccess = function (response) {
   // console.log('The my reciperesponse is ', response)
-  // console.log('user is ', store.user.id)
-  // console.log('store is ', store)
-  document.getElementById('get-recipe-form').reset()
-  let newHTML = ''
+  // console.log(response.recipes)
+  const data = { recipes: [] }
   response['recipes'].forEach(function (recipe) {
-    // console.log(recipe.user_id)
-    // console.log(store.user.id)
     if (recipe.user_id === store.user.id) {
-      // console.log('recipe is ', recipe.user_id)
-      newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
+      data.recipes.push(recipe)
     }
   })
+  // console.log(data)
+  const showMyRecipesHtml = showMyRecipesTemplate({ recipes: data.recipes })
   $('#get-recipe').show()
-  if (newHTML === '') {
-    newHTML = '<h4>You have no recipes. Go ahead and create one!</h4>'
-  }
-  $('#get-recipe').html(newHTML)
+  $('#get-recipe').html(showMyRecipesHtml)
 }
 const getRecipeSuccess = function (response) {
-  // console.log('The response is ', response['recipe'].id)
-  document.getElementById('get-recipe-form').reset()
-  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  console.log('The response is ', response['recipe'].id)
+  console.log('response is ', response)
+  // document.getElementById('get-recipe-form').reset()
+  // const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
+  // $('#get-recipe').show()
+  // $('#get-recipe').html(newHTML)
+
+  const showRecipeHtml = showOneRecipeTemplate({ recipes: response })
   $('#get-recipe').show()
-  $('#get-recipe').html(newHTML)
+  $('#get-recipe').html(showRecipeHtml)
 }
 const getRecipeFailure = function (getRecipeError) {
-  // console.log('The get error is ', getRecipeError)
-  document.getElementById('get-recipe-form').reset()
-  $('#get-fail').modal()
+  console.log('The get error is ', getRecipeError)
+  // document.getElementById('get-recipe-form').reset()
+  // $('#get-fail').modal()
 }
 const updateRecipeSuccess = function (response) {
   // console.log('The response is ', response)
@@ -156,12 +157,12 @@ const updateRecipeFailure = function (response) {
 }
 const destroyRecipeSuccess = function (successResponse) {
   // console.log('Nice response is ', successResponse)
-  document.getElementById('destroy-recipe-form').reset()
+  // document.getElementById('destroy-recipe-form').reset()
   // $('#destroy-pass').modal()
-  $('#get-recipe').hide()
-  $('#destroy').hide()
-  $('#delete-recipe').show()
-  $('#delete-recipe').html('<h3>Recipe Removed</h3>')
+  // $('#get-recipe').hide()
+  // $('#destroy').hide()
+  // $('#delete-recipe').show()
+  // $('#delete-recipe').html('<h3>Recipe Removed</h3>')
 }
 const destroyRecipeFailure = function (failResponse) {
   // console.log('Bad get error is ', failResponse)

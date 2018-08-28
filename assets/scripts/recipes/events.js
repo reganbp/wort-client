@@ -51,13 +51,13 @@ const onCreateRecipe = function (event) {
 }
 const onGetRecipes = function (event) {
   event.preventDefault()
-  $('#update').hide()
-  $('.new-recipe').hide()
-  $('#create').hide()
-  $('#get').show()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-  $('#delete-recipe').hide()
+  // $('#update').hide()
+  // $('.new-recipe').hide()
+  // $('#create').hide()
+  // $('#get').show()
+  // $('#destroy').hide()
+  // $('#get-recipe').hide()
+  // $('#delete-recipe').hide()
 
   authApi.getRecipes()
     .then(authUi.getRecipesSuccess)
@@ -75,17 +75,28 @@ const onGetRecipes = function (event) {
 //     .then(authUi.getMyRecipesSuccess)
 //     .catch(authUi.getMyRecipesFailure)
 // }
+// const onGetRecipe = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   if (data.id === '') {
+//     authUi.getRecipeFailure()
+//   } else {
+//     authApi.getRecipe(data)
+//       .then(authUi.getRecipeSuccess)
+//       .catch(authUi.getRecipeFailure)
+//   }
+// }
 const onGetRecipe = function (event) {
+  console.log('clicked')
   event.preventDefault()
-  const data = getFormFields(event.target)
-  if (data.id === '') {
-    authUi.getRecipeFailure()
-  } else {
-    authApi.getRecipe(data)
-      .then(authUi.getRecipeSuccess)
-      .catch(authUi.getRecipeFailure)
-  }
+  const ratingId = $(event.target).closest('ul').attr('data-id')
+  const data = { id: ratingId }
+  console.log(data)
+  authApi.getRecipe(data)
+    .then(authUi.getRecipeSuccess)
+    .catch(authUi.getRecipeFailure)
 }
+
 const onUpdateRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -98,36 +109,36 @@ const onUpdateRecipe = function (event) {
 }
 const onDestroyRecipe = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  // const dataId = $(event.target).closest('li').attr('data-id')
-  // console.log(dataId)
+  const ratingId = $(event.target).closest('ul').attr('data-id')
+  const data = { id: ratingId }
+  console.log(data)
   authApi.destroyRecipe(data)
     .then(authUi.destroyRecipeSuccess)
+    .then(onGetMyRecipes)
     .catch(authUi.destroyRecipeFailure)
 }
-const onCreateClick = function (event) {
-  $('#create').show()
-  $('.new-recipe').hide()
-  $('#get').hide()
-  $('#update').hide()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-  $('#delete-recipe').hide()
-}
-const onUpdateCLick = function (event) {
-  $('#update').show()
-  $('.new-recipe').hide()
-  $('#create').hide()
-  $('#get').hide()
-  $('#destroy').hide()
-  $('#get-recipe').hide()
-  $('#update-recipe-form').show()
-  $('#delete-recipe').hide()
-
+const onGetMyRecipes = function () {
   authApi.getMyRecipes()
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
 }
+const onCreateClick = function (event) {
+  $('#create').show()
+}
+// const onUpdateCLick = function (event) {
+//   $('#update').show()
+//   $('.new-recipe').hide()
+//   $('#create').hide()
+//   $('#get').hide()
+//   $('#destroy').hide()
+//   $('#get-recipe').hide()
+//   $('#update-recipe-form').show()
+//   $('#delete-recipe').hide()
+//
+//   authApi.getMyRecipes()
+//     .then(authUi.getMyRecipesSuccess)
+//     .catch(authUi.getMyRecipesFailure)
+// }
 const onDestroyClick = function (event) {
   $('#update').hide()
   $('.new-recipe').hide()
@@ -173,19 +184,24 @@ const addHandlers = () => {
   // $('#sign-out-button').on('click', onSignOut)
   $('#sign-out-dropdown').on('submit', onSignOut)
   $('#create-recipe-form').on('submit', onCreateRecipe)
-  $('#get-recipes-button').on('click', onGetRecipes)
-  $('#get-recipe-form').on('submit', onGetRecipe)
-  $('#update-recipe-form').on('submit', onUpdateRecipe)
-  $('#destroy-recipe-form').on('submit', onDestroyRecipe)
+  // $('#get-recipes-button').on('click', onGetRecipes)
+  // $('#get-recipe-form').on('submit', onGetRecipe)
+  // $('#update-recipe-form').on('submit', onUpdateRecipe)
+  // $('#destroy-recipe-form').on('submit', onDestroyRecipe)
   $('#create-button').on('click', onCreateClick)
-  $('#update-button').on('click', onUpdateCLick)
-  $('#destroy-button').on('click', onDestroyClick)
+  // $('#update-button').on('click', onUpdateCLick)
+  // $('#destroy-button').on('click', onDestroyRecipe)
   // $('#show-button').on('click', onGetMyRecipes)
-  $('#show-button').on('click', onGetClick)
+  // $('#show-button').on('click', onGetClick)
   // $('#saved-button').on('click', onGetsClick)
   // $('.delete-button').on('click', console.log('you have clicked me'))
-  // $('#my-recipes-button').on('click', onGetMyRecipes)
+  $('#my-recipes').on('click', onGetClick)
   // $('sign-up-nav').on('click', onUpNavClick)
+  $('#all-recipes').on('click', onGetRecipes)
+  $('.show-recipe').on('click', {value: 'data-id'}, console.log(event))
+  // $('.remove-recipe').on('click', console.log('clicked'))
+  $('.text-show').on('click', '.remove-recipe', onDestroyRecipe)
+  $('.text-show').on('click', '.view-recipe', onGetRecipe)
 }
 
 module.exports = {
@@ -197,5 +213,6 @@ module.exports = {
   onCreateRecipe,
   onGetRecipes,
   onGetRecipe,
-  onDestroyRecipe
+  onDestroyRecipe,
+  onUpdateRecipe
 }

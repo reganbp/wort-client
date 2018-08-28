@@ -12,25 +12,246 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <div class="header">
-        <a href="#default" class="logo">Worts & All</a>
-        <!-- <div class="header-right">
-          <a class="active" href="#home">Home</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-        </div> -->
+
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right ml-auto">
+              <li class="nav-item before-button">
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                <ul class="container-fluid form-wrapper dropdown-menu">
+                  <form id="sign-in-dropdown">
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password]" placeholder="Password" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  </form>
+                </ul>
+              </li>
+              <li class="nav-item before-button">
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <ul class="container-fluid form-wrapper dropdown-menu">
+                  <form id="sign-up-dropdown">
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[email]" placeholder="Email" type="email">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password]" placeholder="Password" type="password">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  </form>
+                </ul>
+              </li>
+              <li class="nav-item after-button">
+        				<a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-edit"></span>Change Password</a>
+        				<ul class="dropdown-menu form-wrapper container-fluid">
+
+        						<form id="change-password-dropdown">
+        							<div class="form-group" >
+                        <input class="form-control" name="passwords[old]" placeholder="Old Password" type="password">
+        							</div>
+        							<div class="form-group">
+        								<input class="form-control" name="passwords[new]" placeholder="New Password" type="password">
+        							</div>
+        							<input type="submit" class="btn btn-primary btn-block" value="Change Password">
+        						</form>
+
+        				</ul>
+
+                <li class="nav-item after-button">
+                  <a data-toggle="dropdown" class="nav-link dropdown-toggle" ><span class="glyphicon glyphicon-log-out"></span>Sign out</a>
+          				<ul class="dropdown-menu form-wrapper">
+
+          						<form id="sign-out-dropdown">
+          							<div>
+                          Are you sure?
+          							</div>
+          							<input type="submit" class="btn btn-primary btn-block" value="Sign Out">
+          						</form>
+
+          				</ul>
+          			</li>
+        			</li>
+            </ul>
+          </div>
+        </nav>
+
+      <div class="modal fade" id="in-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="modal fade" id="up-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            That username is taken or passwords do not match, try again!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="modal fade" id="in-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            Incorrect user name or password
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="modal fade" id="out-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            We didn't sign you out, try again!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="modal fade" id="pass-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sorry!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+            Are you sure that was your old password?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Worts & All</h1>
+        </div>
       </div>
-      <!-- <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news" id='sign-up-nav'>Sign Up</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div> -->
+
+      <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a id="my-recipes" class="nav-link active" href="#content">
+                  My Recipes <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="all-recipes" class="nav-link" href="#">
+                  All Recipes
+                </a>
+              </li>
+              <li  class="nav-item">
+                <a id="create-button" class="nav-link" href="#">
+                  Create Recipe
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Delete Recipe
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="container-fluid" id="content"> </div>
+          <div class="container-fluid" id="create">
+            <h3>Create a New Recipe</h3>
+            <form id="create-recipe-form">
+              <ul class="form-style-1">
+                <li><label>Recipe Name </label><input name="name" placeholder="Name" type="text" class="field-long"></li>
+                <li>
+                  <label>Description </label>
+                  <input type="text" name="description" placeholder="Recipe description"class="field-long" />
+                </li>
+                <li>
+                  <label>Extract </label>
+                  <input type="text" name="extract" placeholder="Exctract"class="field-long" />
+                </li>
+                <li>
+                  <label>Grains </label>
+                  <input type="text" name="grains" placeholder="Grains"class="field-long" />
+                </li>
+                <li>
+                  <label>Hops </label>
+                  <input type="text" name="hops" placeholder="Hops"class="field-long" />
+                </li>
+                <li>
+                  <label>Yeast </label>
+                  <input type="text" name="yeast" placeholder="Yeast"class="field-long" />
+                </li>
+                <li>
+                  <label>Directions </label>
+                  <textarea  name="directions" placeholder="Directions" class="field-long field-textarea"></textarea>
+                </li>
+                <li>
+                  <button type="submit">Create Recipe</button>
+                </li>
+              </ul>
+            </form>
+          </div>
+          <div class="row container-fluid text-show" id="get-recipe"></div>
+        </main>
+      </div>
+    </div>
 
 
-    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+
+    <!-- <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
-		<!-- <a class="navbar-brand" href="#">Brand<b>Name</b></a> -->
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -38,30 +259,6 @@
 			<span class="icon-bar"></span>
 		</button>
 	</div>
-	<!-- Collection of nav links, forms, and other content for toggling -->
-	<!-- <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-		<ul class="nav navbar-nav">
-			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">About</a></li>
-			<li class="nav-item dropdown">
-				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="#" class="dropdown-item">Web Design</a></li>
-					<li><a href="#" class="dropdown-item">Web Development</a></li>
-					<li><a href="#" class="dropdown-item">Graphic Design</a></li>
-					<li><a href="#" class="dropdown-item">Digital Marketing</a></li>
-				</ul>
-			</li>
-			<li class="nav-item active"><a href="#" class="nav-link">Pricing</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-		</ul> -->
-		<!-- <form class="navbar-form form-inline">
-			<div class="input-group search-box">
-				<input type="text" id="search" class="form-control" placeholder="Search here...">
-				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
-			</div>
-		</form> -->
 		<ul class="nav navbar-nav navbar-right ml-auto">
 			<li class="nav-item before-button">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" >Login</a>
@@ -128,10 +325,7 @@
 					</li>
 				</ul>
 			</li>
-				<!-- <button id="sign-out-button" class="sign-out btn btn-block">Sign Out</button>
-			</li> -->
 		</ul>
-	<!-- </div> -->
 </nav>
 
 <div class="modal fade" id="in-form-fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -148,7 +342,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       </div>
     </div>
   </div>
@@ -181,7 +374,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       </div>
     </div>
   </div>
@@ -201,7 +393,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       </div>
     </div>
   </div>
@@ -360,29 +551,17 @@
         <button type="submit">Change Password</button>
       </form>
 
-      <!-- <button id='sign-out-button' class="sign-out after-button btn btn-light">Sign Out</button> -->
 
       <div id="buttons">
       <button id="create-button">Create Recipe</button>
       <button id="update-button" class="update-button">Update Recipe</button>
       <button id="destroy-button">Remove Recipe</button>
       <button id="show-button">My Recipes</button>
-      <!-- <button id="saved-button">All Recipies</button> -->
       <button id="get-recipes-button">All Recipies</button>
       </div>
+
       <div id="create">
         <h3>Create a New Recipe</h3>
-
-        <!-- <form id="create-recipe-form">
-          <input name="name" placeholder="Name" type="text">
-          <input name="description" placeholder="Description" type="text">
-          <input name="extract" placeholder="Extract" type="text">
-          <input name="grains" placeholder="Grains" type="text">
-          <input name="hops" placeholder="Hops" type="text">
-          <input name="yeast" placeholder="Yeast" type="text">
-          <input name="directions" placeholder="Directions" type="text">
-          <button type="submit">Create Recipe</button>
-        </form> -->
     <form id="create-recipe-form">
       <ul class="form-style-1">
       <li><label>Recipe Name </label><input name="name" placeholder="Name" type="text" class="field-long"></li>
@@ -417,20 +596,9 @@
 
 
 
-      <!-- <li>
-        <label>Subject</label>
-        <select name="field4" class="field-select">
-        <option value="Advertise">Advertise</option>
-        <option value="Partnership">Partnership</option>
-        <option value="General Question">General</option>
-        </select>
-      </li> -->
-      <!-- <li>
-        <label>Your Message </label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-      </li> -->
+
       <li>
-        <!-- <input type="submit" value="Submit" /> -->
+
         <button type="submit">Create Recipe</button>
       </li>
     </ul>
@@ -441,10 +609,7 @@
 
       <div id="get">
         <h3>Recipes</h3>
-        <!-- <form id="get-recipe-form">
-          <input name="id" placeholder="ID" type="text">
-          <button type="submit">Get Recipe</button>
-        </form> -->
+
         <form id="get-recipe-form">
           <ul class="form-style-1">
             <label>Enter ID to see the recipe<span class="required">*</span></label>
@@ -455,12 +620,10 @@
         </ul>
       </form>
       </div>
-        <!-- <button id='my-recipes-button' class="get-recipes btn btn-default">My Recipes</button> -->
-      <!-- </div> -->
+
 
       <div id="update">
         <h3>Update A Recipe From Your List Below</h3>
-        <!-- <h5>If you have none, go create one!</h5> -->
           <form id="update-recipe-form">
             <ul class="form-style-1">
               <label>Recipe ID <span class="required">*</span></label>
@@ -500,16 +663,12 @@
             <div class="new-recipe-response"></div>
         </div>
 
-        <!-- <div id="get-recipe">TEst this out</div> -->
+
       </div>
 
       <div id="destroy">
         <h3>Remove A Recipe From You List Below</h3>
-        <!-- <h5>If you have none, go create one!</h5> -->
-        <!-- <form id="destroy-recipe-form">
-          <input name="id" placeholder="ID" type="text">
-          <button type="submit">Destroy Recipe</button>
-        </form> -->
+
         <form id="destroy-recipe-form">
           <ul class="form-style-1">
             <label>Recipe ID<span class="required">*</span></label>
@@ -521,7 +680,7 @@
       </form>
       </div>
       <div id="delete-recipe"></div>
-      <div id="get-recipe" class"text-show"></div>
+      <div id="get-recipe" class"text-show"></div> -->
 
     </body>
 </html>
