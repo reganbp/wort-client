@@ -140,7 +140,7 @@ const updateRecipeFailure = function (response) {
   $('#update-fail').modal()
 }
 const destroyRecipeSuccess = function (successResponse) {
-   console.log('Nice response is ', successResponse)
+  console.log('Nice response is ', successResponse)
   // document.getElementById('destroy-recipe-form').reset()
   // $('#destroy-pass').modal()
   // $('#get-recipe').hide()
@@ -154,7 +154,15 @@ const destroyRecipeFailure = function (failResponse) {
   $('#update-fail').modal()
 }
 const signInDisplaySuccess = function (response) {
-  const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
+  let recipes = []
+  if (response.recipes.length < 20) {
+    recipes = response.recipes.reverse()
+  } else {
+    for (let i = 0; i < 20; i++) {
+      recipes.push(response.recipes.reverse()[i])
+    }
+  }
+  const showRecipesHtml = showRecipesTemplate({ recipes: recipes })
   $('#get-recipe').show()
   $('#get-recipe').html(showRecipesHtml)
 }
