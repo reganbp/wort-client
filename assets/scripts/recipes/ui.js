@@ -100,10 +100,10 @@ const getMyRecipesSuccess = function (response) {
   const data = { recipes: [] }
   response['recipes'].forEach(function (recipe) {
     if (recipe.user_id === store.user.id) {
-      data.recipes.push(recipe)
+      data.recipes.unshift(recipe)
     }
   })
-  // console.log(data)
+  // console.log('data is', data)
   const showMyRecipesHtml = showMyRecipesTemplate({ recipes: data.recipes })
   $('#get-recipe').show()
   $('#get-recipe').html(showMyRecipesHtml)

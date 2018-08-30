@@ -4,15 +4,15 @@ const getFormFields = require('../../../lib/get-form-fields')
 const authApi = require('./api.js')
 const authUi = require('./ui.js')
 
-const dataCheck = function (data) {
-  for (const key in data) {
-    if (data[key] === '') {
-      delete data[key]
-    }
-  }
-  // console.log('dataCheck gives data as ', data)
-  return data
-}
+// const dataCheck = function (data) {
+//   for (const key in data) {
+//     if (data[key] === '') {
+//       delete data[key]
+//     }
+//   }
+//   // console.log('dataCheck gives data as ', data)
+//   return data
+// }
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -100,7 +100,7 @@ const onGetRecipe = function (event) {
 const onUpdateRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('data ', data)
+  // console.log('data ', data)
 
   // dataCheck(data)
   // console.log('dataCheck gives itselfs as ', dataCheck(data))
