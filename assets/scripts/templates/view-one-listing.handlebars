@@ -3,42 +3,72 @@
 <!-- {{> partial}} -->
 
 
- <!-- Developers, why are we using data-id and not just id? -->
  <div class="container-fluid col-lg-6 list">
-  <h1 data-id="{{recipe.id}}" class="my-recipe"> <small>Name: {{recipe.name}}</small></h1>
+  <h1 data-id="{{recipe.id}}" class="my-recipe handlebars-form-hidden-{{recipe.id}}"> <small>Name: {{recipe.name}}</small></h1>
   <ul data-id="{{recipe.id}}">
-    <li>{{#if recipe.description}}
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.description}}
       {{recipe.description}}
     {{else}}
       No description provided.
     {{/if}}</li>
-    <li>{{#if recipe.extract}}
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.extract}}
       {{recipe.extract}}
     {{else}}
       No extract provided.
     {{/if}}</li>
-    <li>{{#if recipe.grains}}
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.grains}}
       {{recipe.grains}}
     {{else}}
       No grains provided.
     {{/if}}</li>
-    <li>{{#if recipe.hops}}
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.hops}}
       {{recipe.hops}}
     {{else}}
       No hops provided.
     {{/if}}</li>
-    <li>{{#if recipe.yeast}}
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.yeast}}
       {{recipe.yeast}}
     {{else}}
       No yeast provided.
     {{/if}}</li>
-    <li>{{#if recipe.directions}}
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.directions}}
       {{recipe.directions}}
     {{else}}
       No directions provided.
     {{/if}}</li>
-    <li class="handlebars-form-hidden-{{rating.id}}"><button class="view-recipe">View</button></li>
-    <li class="handlebars-form-hidden-{{rating.id}}"><button class="remove-recipe">Remove</button></li>
+    <li class="handlebars-form-hidden-{{recipe.id}}"><button class="show-recipe-to-update">Update</button></li>
+
+    <form id="recipe-form-{{recipe.id}}" class="update-recipes-form">
+      <div class="form-group">
+        <input class="form-control handlebars-form-hidden" name="id" type="text" value="{{recipe.id}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="name" placeholder="Name" type="text" value="{{recipe.name}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="description" placeholder="Description" type="text" value="{{recipe.description}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="extract" placeholder="Extract" type="text" value="{{recipe.extract}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="grains" placeholder="Grains" type="text" value="{{recipe.grains}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="hops" placeholder="Hops" type="text" value="{{recipe.hops}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="yeast" placeholder="Yeast" type="text" value="{{recipe.yeast}}">
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="directions" placeholder="Directions" type="text" value="{{recipe.directions}}">
+      </div>
+      <input type="submit" class="btn btn-primary btn-block" value="Update">
+    </form>
+
+
+
+
   </ul>
 </div>
 

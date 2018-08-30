@@ -89,8 +89,8 @@ const onGetRecipes = function (event) {
 const onGetRecipe = function (event) {
   console.log('clicked')
   event.preventDefault()
-  const ratingId = $(event.target).closest('ul').attr('data-id')
-  const data = { id: ratingId }
+  const recipeId = $(event.target).closest('ul').attr('data-id')
+  const data = { id: recipeId }
   console.log(data)
   authApi.getRecipe(data)
     .then(authUi.getRecipeSuccess)
@@ -100,8 +100,9 @@ const onGetRecipe = function (event) {
 const onUpdateRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('data ', data)
 
-  dataCheck(data)
+  // dataCheck(data)
   // console.log('dataCheck gives itselfs as ', dataCheck(data))
   authApi.updateRecipe(data)
     .then(authUi.updateRecipeSuccess)
@@ -165,15 +166,17 @@ const onGetClick = function (event) {
     .then(authUi.getMyRecipesSuccess)
     .catch(authUi.getMyRecipesFailure)
 }
-// const onGetsClick = function (event) {
-//   $('#update').hide()
-//   $('.new-recipe').hide()
-//   $('#create').hide()
-//   $('#get').show()
-//   $('#destroy').hide()
-//   $('#get-recipe').hide()
-// }
-// const onUpNavClick = function (event) {}
+const onShowUpdateRecipe = function (event) {
+  // const ratingId = $(event.target).closest('ul').attr('data-id')
+  // console.log(ratingId)
+  event.preventDefault()
+  console.log('clicked')
+  const recipeId = $(event.target).closest('ul').attr('data-id')
+  console.log(recipeId)
+  $('#recipe-form-' + recipeId).show()
+  $('.handlebars-form-hidden').hide()
+  $('.handlebars-form-hidden-' + recipeId).hide()
+}
 
 const addHandlers = () => {
   // $('#sign-up-form').on('submit', onSignUp)
@@ -202,6 +205,8 @@ const addHandlers = () => {
   // $('.remove-recipe').on('click', console.log('clicked'))
   $('.text-show').on('click', '.remove-recipe', onDestroyRecipe)
   $('.text-show').on('click', '.view-recipe', onGetRecipe)
+  $('.text-show').on('click', '.show-recipe-to-update', onShowUpdateRecipe)
+  $('.text-show').on('submit', '.update-recipes-form', onUpdateRecipe)
 }
 
 module.exports = {
@@ -214,5 +219,6 @@ module.exports = {
   onGetRecipes,
   onGetRecipe,
   onDestroyRecipe,
-  onUpdateRecipe
+  onUpdateRecipe,
+  onShowUpdateRecipe
 }

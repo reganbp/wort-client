@@ -84,19 +84,6 @@ const createRecipeFailure = function (response) {
   $('#create-fail').modal()
 }
 const getRecipesSuccess = function (response) {
-  // console.log('The response is ', response)
-  // document.getElementById('get-recipe-form').reset()
-  // let newHTML = ''
-  // response['recipes'].forEach(function (recipe) {
-  //   // console.log(recipe.user_id)
-  //   if (recipe.name === '') {
-  //     recipe.name = 'untitled'
-  //   }
-  //   newHTML += '<ul><li><h4>' + recipe.name + '<br/><small> Id: ' + recipe.id + '</small></h4></li></ul>'
-  // })
-  // $('#get-recipe').show()
-  // $('#get-recipe').html(newHTML)
-
   const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
   $('#get-recipe').show()
   $('#get-recipe').html(showRecipesHtml)
@@ -122,16 +109,10 @@ const getMyRecipesSuccess = function (response) {
   $('#get-recipe').html(showMyRecipesHtml)
 }
 const getRecipeSuccess = function (response) {
-  console.log('The response is ', response['recipe'].id)
-  console.log('response is ', response)
-  // document.getElementById('get-recipe-form').reset()
-  // const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
-  // $('#get-recipe').show()
-  // $('#get-recipe').html(newHTML)
-
   const showRecipeHtml = showOneRecipeTemplate({ recipes: response })
   $('#get-recipe').show()
   $('#get-recipe').html(showRecipeHtml)
+  $('.update-recipes-form').hide()
 }
 const getRecipeFailure = function (getRecipeError) {
   console.log('The get error is ', getRecipeError)
@@ -139,16 +120,10 @@ const getRecipeFailure = function (getRecipeError) {
   // $('#get-fail').modal()
 }
 const updateRecipeSuccess = function (response) {
-  // console.log('The response is ', response)
-  // $('.new-recipe').show()
-  // $('.new-recipe-response').html('Name: ' + response['recipe'].name)
-  const newHTML = '<li><h3>' + response['recipe'].name + '</h3><br/><h4> Description: ' + response['recipe'].description + '<br/> Extract: ' + response['recipe'].extract + '<br/>Grains: ' + response['recipe'].grains + '<br/>Hops: ' + response['recipe'].hops + '<br/>Yeast: ' + response['recipe'].yeast + '<br/>Directions: ' + response['recipe'].directions + '</h4></li>'
-  document.getElementById('update-recipe-form').reset()
-  $('#update').hide()
-  $('#delete-recipe').show()
-  $('#delete-recipe').html('<h3>Recipe Updated</h3>')
+  const showRecipeHtml = showOneRecipeTemplate({ recipes: response })
   $('#get-recipe').show()
-  $('#get-recipe').html(newHTML)
+  $('#get-recipe').html(showRecipeHtml)
+  $('.update-recipes-form').hide()
 }
 const updateRecipeFailure = function (response) {
   // console.log('The get error is ', response)
