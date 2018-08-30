@@ -38,6 +38,7 @@ nav {
   border-color: black;
   margin: 5px;
 }
+
 body {
   border: 50px;
   // padding: 20px 10px;
@@ -48,6 +49,19 @@ body {
 //   text-align: left;
 // }
 //
+.sidebar {
+  background-color: black;
+  height: 100%;
+  min-height: calc(100vh - 50px);
+  // position: fixed;
+}
+
+.main {
+  height: 100%;
+}
+
+.page-row-expanded { height: 100%; }
+
 .form-style-1 {
     margin:10px auto;
     max-width: 400px;

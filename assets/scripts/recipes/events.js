@@ -26,6 +26,7 @@ const onSignIn = function (event) {
   // console.log('data is ', data)
   authApi.signIn(data)
     .then(authUi.signInSuccess)
+    .then(onSignInDisplay)
     .catch(authUi.signInFailure)
 }
 const onChangePw = function (event) {
@@ -186,6 +187,12 @@ const onShowRecipe = function (event) {
     .then(authUi.showRecipeSuccess)
     .catch(authUi.showRecipeFailure)
 }
+const onSignInDisplay = function () {
+  console.log('signed in and passed to display')
+  authApi.getRecipes()
+    .then(authUi.signInDisplaySuccess)
+    .catch(authUi.signInDisplayFailure)
+}
 
 const addHandlers = () => {
   // $('#sign-up-form').on('submit', onSignUp)
@@ -231,5 +238,6 @@ module.exports = {
   onDestroyRecipe,
   onUpdateRecipe,
   onShowUpdateRecipe,
-  onShowRecipe
+  onShowRecipe,
+  onSignInDisplay
 }

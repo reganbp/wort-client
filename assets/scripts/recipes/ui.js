@@ -140,7 +140,7 @@ const updateRecipeFailure = function (response) {
   $('#update-fail').modal()
 }
 const destroyRecipeSuccess = function (successResponse) {
-  // console.log('Nice response is ', successResponse)
+   console.log('Nice response is ', successResponse)
   // document.getElementById('destroy-recipe-form').reset()
   // $('#destroy-pass').modal()
   // $('#get-recipe').hide()
@@ -152,6 +152,11 @@ const destroyRecipeFailure = function (failResponse) {
   // console.log('Bad get error is ', failResponse)
   document.getElementById('destroy-recipe-form').reset()
   $('#update-fail').modal()
+}
+const signInDisplaySuccess = function (response) {
+  const showRecipesHtml = showRecipesTemplate({ recipes: response.recipes })
+  $('#get-recipe').show()
+  $('#get-recipe').html(showRecipesHtml)
 }
 
 module.exports = {
@@ -175,5 +180,6 @@ module.exports = {
   destroyRecipeFailure,
   getMyRecipesSuccess,
   showRecipeSuccess,
-  showRecipeFailure
+  showRecipeFailure,
+  signInDisplaySuccess
 }
