@@ -177,6 +177,15 @@ const onShowUpdateRecipe = function (event) {
   $('.handlebars-form-hidden').hide()
   $('.handlebars-form-hidden-' + recipeId).hide()
 }
+const onShowRecipe = function (event) {
+  event.preventDefault()
+  const recipeId = $(event.target).closest('h1').attr('data-id')
+  const data = { id: recipeId }
+  console.log(data)
+  authApi.showRecipe(data)
+    .then(authUi.showRecipeSuccess)
+    .catch(authUi.showRecipeFailure)
+}
 
 const addHandlers = () => {
   // $('#sign-up-form').on('submit', onSignUp)
@@ -207,6 +216,7 @@ const addHandlers = () => {
   $('.text-show').on('click', '.view-recipe', onGetRecipe)
   $('.text-show').on('click', '.show-recipe-to-update', onShowUpdateRecipe)
   $('.text-show').on('submit', '.update-recipes-form', onUpdateRecipe)
+  $('.text-show').on('click', '.show-recipe', onShowRecipe)
 }
 
 module.exports = {
@@ -220,5 +230,6 @@ module.exports = {
   onGetRecipe,
   onDestroyRecipe,
   onUpdateRecipe,
-  onShowUpdateRecipe
+  onShowUpdateRecipe,
+  onShowRecipe
 }

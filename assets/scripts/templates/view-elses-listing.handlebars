@@ -1,0 +1,44 @@
+{{#each recipes as |recipe|}}
+
+<!-- {{> partial}} -->
+
+
+ <div class="container-fluid col-lg-6 list">
+  <h1 data-id="{{recipe.id}}" class="my-recipe handlebars-form-hidden-{{recipe.id}}"> <small>Name: {{recipe.name}}</small></h1>
+  <ul data-id="{{recipe.id}}">
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.description}}
+      {{recipe.description}}
+    {{else}}
+      No description provided.
+    {{/if}}</li>
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.extract}}
+      {{recipe.extract}}
+    {{else}}
+      No extract provided.
+    {{/if}}</li>
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.grains}}
+      {{recipe.grains}}
+    {{else}}
+      No grains provided.
+    {{/if}}</li>
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.hops}}
+      {{recipe.hops}}
+    {{else}}
+      No hops provided.
+    {{/if}}</li>
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.yeast}}
+      {{recipe.yeast}}
+    {{else}}
+      No yeast provided.
+    {{/if}}</li>
+    <li class="handlebars-form-hidden-{{recipe.id}}">{{#if recipe.directions}}
+      {{recipe.directions}}
+    {{else}}
+      No directions provided.
+    {{/if}}</li>
+
+  </ul>
+</div>
+
+
+{{/each}}

@@ -5,13 +5,14 @@
 
  <!-- Developers, why are we using data-id and not just id? -->
  <div class="container-fluid col-sm-4 list">
-  <h1 data-id="{{recipe.id}}"><a class="show-recipe"> <small>Name: {{recipe.name}}</small></a></h1>
+  <h1 data-id="{{recipe.id}}"><a href="" class="show-recipe"> <small>Name: {{recipe.name}}</small></a></h1>
   <ul data-id="{{recipe.id}}">
     <li>{{#if recipe.description}}
       {{recipe.description}}
     {{else}}
       No description provided.
     {{/if}}</li>
+
   </ul>
 </div>
 

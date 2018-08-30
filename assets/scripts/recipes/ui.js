@@ -3,6 +3,7 @@ const store = require('../store')
 const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 const showMyRecipesTemplate = require('../templates/my-recipe-listing.handlebars')
 const showOneRecipeTemplate = require('../templates/view-one-listing.handlebars')
+const showElsesRecipeTemplate = require('../templates/view-elses-listing.handlebars')
 
 const signUpSuccess = function (signUpResponse) {
   // document.getElementById('sign-up-dropdown').reset()
@@ -119,6 +120,14 @@ const getRecipeFailure = function (getRecipeError) {
   // document.getElementById('get-recipe-form').reset()
   // $('#get-fail').modal()
 }
+const showRecipeSuccess = function (response) {
+  const showElsesHtml = showElsesRecipeTemplate({ recipes: response })
+  $('#get-recipe').show()
+  $('#get-recipe').html(showElsesHtml)
+}
+const showRecipeFailure = function (showRecipeError) {
+  console.log('e is', showRecipeError)
+}
 const updateRecipeSuccess = function (response) {
   const showRecipeHtml = showOneRecipeTemplate({ recipes: response })
   $('#get-recipe').show()
@@ -164,5 +173,7 @@ module.exports = {
   updateRecipeFailure,
   destroyRecipeSuccess,
   destroyRecipeFailure,
-  getMyRecipesSuccess
+  getMyRecipesSuccess,
+  showRecipeSuccess,
+  showRecipeFailure
 }

@@ -66,6 +66,15 @@ const getRecipe = function (data) {
     }
   })
 }
+const showRecipe = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/recipes/' + data.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 const createRecipe = function (data) {
   data.user_id = store.user.id
   // console.log('the data is ', data)
@@ -108,5 +117,6 @@ module.exports = {
   getRecipe,
   updateRecipe,
   destroyRecipe,
-  getMyRecipes
+  getMyRecipes,
+  showRecipe
 }
